@@ -29,7 +29,7 @@ export function NavigationArrow({ current_stand_id, next_stand_id }: NavigationA
                 <Image source={image} style={[styles.image, { transform: [{ rotate: rotationAngle }] }]} />
             </View>
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => console.log('Button pressed!')}>
+                <TouchableOpacity style={styles.button} onPress={() => console.log('Change screen')}>
                     <Text style={styles.buttonText}>Scan Code</Text>
                 </TouchableOpacity>
             </View>
