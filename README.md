@@ -1,18 +1,15 @@
 # Wizja
 
-### Podstawowa wizja projektu:
+## Podstawowa wizja projektu:
 Celem projektu jest urozmaicenie dni otwartych AGH w D17, tematem projektu jest aplikacja mobilna umożliwiająca uczestnikom imprezy na wygodne odwiedzenie interesujących ich stanowisk. Podstawowym działaniem aplikacji jest nawigowanie uczestnika pomiędzy stanowiskami oraz przedstawianie mu tematycznych quizów / minigier przy kolejnych stanowiskach.
 
-### Zasada działania:
+## Zasada działania:
 Użytkownik włącza aplikację i wyświetlana mu jest lista ze stanowiskami i ich opisami. Użytkownik wybiera interesujące go pozycje, ustawia je w kolejności w jakiej chciałby je odwiedzić, kiedy użytkownik jest już zdecydowany zatwierdza swoje wybory. Po zaakceptowaniu aplikacja przechodzi w stan nawigacji, zaczynając od ekranu skanowania kodu QR. Każde stanowisko posiada swój unikalny kod. Po zeskanowaniu kodu pierwszego stanowiska wyświetla się strzałka kierująca użytkownika do kolejnego stanowiska z ułożonej przez niego listy. Kiedy  Ten proces powtarza się aż do zakończenia zwiedzania.
 
-### Dodatkowe funkcje:
+## Dodatkowe funkcje:
 Poza strzałką użytkownik widzi mapę z jego aktualną pozycją i trasą do następnego stanowiska.
 
 Użytkownik wypełnia quiz / minigrę przy obecnym stanowisku.
-
-
-
 
 # Welcome to your Expo app 👋
 
