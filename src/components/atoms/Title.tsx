@@ -1,9 +1,9 @@
-import primaryColors from "properties/styles/colors";
+import primaryColors from "../../properties/styles/colors";
 import {
   borderRadiusSize,
   fontSize,
   paddingSize,
-} from "properties/styles/vars";
+} from "../../properties/styles/vars";
 import React from "react";
 import { Text, StyleSheet, View } from "react-native";
 

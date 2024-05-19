@@ -1,18 +1,35 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import React from 'react';
+import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
+import React  from 'react';
+import { NavigationArrowArgs, QuizResultScreenProps } from "../types";
 
-const QuizResultScreen = ({route, navigation }: {route: any, navigation: any }) => {
-    const result = route.params.result;
-    const msg = result ? "Correct!" : "Incorrect";
-    const resultStyle = result ? styles.correct : styles.incorrect;
+
+export function QuizResultScreen({navigation, route }: QuizResultScreenProps) {
+    const handleOnClick = () => {
+        if (route.params.commonArgs.stands_list.length > 1) {
+            route.params.commonArgs.stands_list.shift();
+            const args: NavigationArrowArgs = {
+                common_args: route.params.commonArgs,
+                current_stand_id: route.params.commonArgs.stands_list[0],
+                next_stand_id: route.params.commonArgs.stands_list[1],
+            };
+
+            navigation.navigate("NavigationArrow", args);
+        } else {
+            navigation.navigate("EndScreen");
+        }
+    }
+
+    let msg = "";
+    if(route.params.isCorrect) msg = "Correct";
+    else msg = "Incorrect";
 
     return (
         <View style={styles.container}>
             <View style={styles.card}>
-                <Text style={[styles.message, resultStyle]}>{msg}</Text>
+                <Text style={[styles.message]}>{msg}</Text>
                 <TouchableOpacity 
                     style={styles.button} 
-                    onPress={() => navigation.navigate('QuizScreen', { questionId: 0 })}
+                    onPress={handleOnClick}
                 >
                     <Text style={styles.buttonText}>Next task</Text>
                 </TouchableOpacity>
@@ -20,6 +37,7 @@ const QuizResultScreen = ({route, navigation }: {route: any, navigation: any }) 
         </View>
     );
 };
+
 
 const styles = StyleSheet.create({
     container: {
@@ -68,5 +86,3 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 });
-
-export default QuizResultScreen;

@@ -1,6 +1,6 @@
-
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { Data, NavigationArrowProps, Position } from '../types';
+import { NavigationArrowProps, Position } from '../types';
+import React from 'react';
 
 
 export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
@@ -28,14 +28,20 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
         button_text = `Skanuj kod QR`
     }
 
+    const current_stand_name = data.stands[current_stand_id].name
+    const next_stand_name = data.stands[next_stand_id].name
+
     const current_stand_position = data.stands[current_stand_id].position
     const current_stand_angle = data.stands[current_stand_id].angle
     const next_stand_position = data.stands[next_stand_id].position
 
     const rotationAngle = getArrowAngle(current_stand_position, current_stand_angle, next_stand_position)
 
+
     return (
         <View style={styles.container}>
+            <Text>Current stand is: {current_stand_name} (id: {current_stand_id})</Text>
+            <Text>Next stand is: {next_stand_name} (id: {next_stand_id})</Text>
             <Text style={styles.topText}>{info_text}</Text>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Image source={image} style={[styles.image, { transform: [{ rotate: rotationAngle }] }]} />
