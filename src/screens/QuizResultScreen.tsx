@@ -6,13 +6,16 @@ import { NavigationArrowArgs, QuizResultScreenProps } from "../types";
 export function QuizResultScreen({navigation, route }: QuizResultScreenProps) {
     const handleOnClick = () => {
         if (route.params.commonArgs.stands_list.length > 1) {
+            const current_stand_id = route.params.commonArgs.stands_list[0];
+            const next_stand_id = route.params.commonArgs.stands_list[1];
             route.params.commonArgs.stands_list.shift();
+
             const args: NavigationArrowArgs = {
                 common_args: route.params.commonArgs,
-                current_stand_id: route.params.commonArgs.stands_list[0],
-                next_stand_id: route.params.commonArgs.stands_list[1],
+                current_stand_id,
+                next_stand_id,
             };
-
+            
             navigation.navigate("NavigationArrow", args);
         } else {
             navigation.navigate("EndScreen");
