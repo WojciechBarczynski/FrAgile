@@ -1,13 +1,13 @@
 import { PrimaryButton, Title } from "components/atoms";
 import { useState } from "react";
-import { TextInput, View } from "react-native";
+import { TextInput, View, StyleSheet, Text } from "react-native";
 import { QrScanScreenProps } from "../types";
 
 export function QrScanScreen({ navigation, route }: QrScanScreenProps) {
   const [inputText, setText] = useState('');
 
   return (
-    <View style={{ flex: 1, padding: 10, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={qrScanScreenStyle.container}>
       <PrimaryButton
         title="Open QR scanner"
         handleOnClick={() => {
@@ -15,10 +15,12 @@ export function QrScanScreen({ navigation, route }: QrScanScreenProps) {
         }}
       />
 
-      <Title title={" or "} />
+      <Text style={qrScanScreenStyle.text}>
+        OR
+      </Text>
 
       <TextInput
-        style={{height: 40, alignSelf: 'stretch'}}
+        style={qrScanScreenStyle.text_input}
         placeholder="Type station ID here!"
         onChangeText={newText => setText(newText)}
         defaultValue={inputText}
@@ -46,3 +48,27 @@ export function QrScanScreen({ navigation, route }: QrScanScreenProps) {
     </View>
   );
 };
+
+export default QrScanScreen;
+
+export const qrScanScreenStyle = StyleSheet.create({
+  container: {
+    flex: 1, 
+    padding: 10, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    backgroundColor: "skyblue",
+    gap: 20
+  },
+  text: {
+    color: 'black',
+    fontSize: 50,
+    marginVertical: 20
+  },
+  text_input: {
+    height: 40, 
+    alignSelf: 'stretch',
+    fontSize: 25,
+    paddingHorizontal: 20
+  }
+});
