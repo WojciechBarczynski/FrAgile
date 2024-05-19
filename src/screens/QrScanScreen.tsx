@@ -40,6 +40,7 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
           if (rooms.find(room => room.id.toString() === inputText)) {
             console.log('Room found');
           } else {
+            navigation.navigate("QuizScreen", {questionId: 0});
             console.log('Room not found');
           }
         }}
