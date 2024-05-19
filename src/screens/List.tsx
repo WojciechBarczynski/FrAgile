@@ -1,6 +1,6 @@
 import React, {useState} from "react";
-import {Text, StyleSheet, TouchableOpacity, Button, ScrollView, View} from "react-native";
-import DraggableFlatList, {
+import {Text, StyleSheet, TouchableOpacity, Button} from "react-native";
+import {
     NestableDraggableFlatList,
     NestableScrollContainer,
     RenderItemParams,
@@ -9,7 +9,6 @@ import DraggableFlatList, {
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import stands from "../../config/stands.json";
 import {Checkbox} from "expo-checkbox";
-import Title from "components/atoms/Title";
 
 const NUM_ITEMS = stands.stands.length
 const COLOR = 'rgb(0, 153, 255)'
