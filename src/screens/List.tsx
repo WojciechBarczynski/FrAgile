@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Text, StyleSheet, TouchableOpacity, Button} from "react-native";
+import React, { useState } from "react";
+import { Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import {
     NestableDraggableFlatList,
     NestableScrollContainer,
@@ -8,7 +8,9 @@ import {
 } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import stands from "../../config/stands.json";
-import {Checkbox} from "expo-checkbox";
+import { Checkbox } from "expo-checkbox";
+import { StackParams } from "../types";
+import { StackNavigationProp } from "@react-navigation/stack";
 
 const NUM_ITEMS = stands.stands.length
 const COLOR = 'rgb(0, 153, 255)'
@@ -38,7 +40,7 @@ const initialData: Item[] = [...Array(NUM_ITEMS)].map((d, index) => {
     };
 });
 
-export default function List() {
+export default function List({ navigation: navigation }: { navigation: StackNavigationProp<StackParams, 'List'> }) {
     const [data, setData] = useState(initialData);
     const [chosenList, setChosenList] = useState(new Array(NUM_ITEMS).fill(true));
     const handleOnChange = (position: number) => {
@@ -46,7 +48,7 @@ export default function List() {
         setChosenList(updatedList)
     }
 
-    const renderItem = ({ item, drag, isActive}: RenderItemParams<Item>) => {
+    const renderItem = ({ item, drag, isActive }: RenderItemParams<Item>) => {
         return (
             <ScaleDecorator>
                 <TouchableOpacity
@@ -54,11 +56,11 @@ export default function List() {
                     disabled={isActive}
                     style={[
                         styles.rowItem,
-                        { backgroundColor: isActive ? "red" : !chosenList.at(item.id) ? "gray" : item.backgroundColor},
+                        { backgroundColor: isActive ? "red" : !chosenList.at(item.id) ? "gray" : item.backgroundColor },
                     ]}
                 >
                     <Checkbox
-                        style={{alignSelf: "center"}}
+                        style={{ alignSelf: "center" }}
                         value={chosenList.at(item.id)}
                         onValueChange={() => handleOnChange(item.id)}
                     />
@@ -76,18 +78,18 @@ export default function List() {
     }
 
     return (
-        <GestureHandlerRootView style={{marginTop: 25, flex: 1}}>
+        <GestureHandlerRootView style={{ marginTop: 25, flex: 1 }}>
             <NestableScrollContainer>
-                <Text style={{fontSize: 32}}>
+                <Text style={{ fontSize: 32 }}>
                     Przeciągnij elementy, aby ustawić swoje preferencje oraz odhacz stoiska, które cię nie interesują.
                 </Text>
                 <NestableDraggableFlatList
                     data={data}
-                    onDragEnd={({data}) => {setData(data)}}
+                    onDragEnd={({ data }) => { setData(data) }}
                     keyExtractor={(item) => item.key}
                     renderItem={renderItem}
                 />
-                <Button title={"Submit"}  onPress={formatData} color={"#0059b3"}/>
+                <Button title={"Submit"} onPress={formatData} color={"#0059b3"} />
             </NestableScrollContainer>
         </GestureHandlerRootView>
     );

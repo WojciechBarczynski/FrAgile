@@ -1,7 +1,7 @@
-import {PrimaryButton, Title} from "components/atoms";
-import {paddingSize} from "properties/styles/vars";
+import { PrimaryButton, Title } from "components/atoms";
+import { paddingSize } from "properties/styles/vars";
 import React from "react";
-import {Image, SafeAreaView, StyleSheet, View} from "react-native";
+import { Image, SafeAreaView, StyleSheet, View } from "react-native";
 
 
 export const mainStyle = StyleSheet.create({
@@ -24,13 +24,13 @@ export const mainStyle = StyleSheet.create({
 
 const MainScreen = ({ navigation }: { navigation: any }) => {
 
-// Navigation functions
+  // Navigation functions
   const navigateToQrScanScreen = () => {
     navigation.navigate("QrScanScreen");
   };
 
   const navigateToListScreen = () => {
-    navigation.navigate("ListScreen");
+    navigation.navigate("List");
   };
 
   const navigateToMapScreen = () => {
@@ -42,7 +42,7 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
   };
 
 
-// Layout
+  // Layout
   return (
     <View style={[{ flex: 1 }]}>
       <SafeAreaView style={mainStyle.container}>
