@@ -26,7 +26,9 @@ export type StackParams = {
     MainScreen: undefined,
     StartScreen: undefined,
     QrScanScreen: undefined,
-    QrScanner: undefined
+    QrScanner: undefined,
+    List: undefined,
+    EndScreen: undefined
 }
 
 export type NavigationArrowNavigationProp = StackNavigationProp<StackParams, 'NavigationArrow'>
