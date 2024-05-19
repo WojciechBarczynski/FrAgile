@@ -33,10 +33,6 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
     navigation.navigate("List");
   };
 
-  const navigateToMapScreen = () => {
-    navigation.navigate("MapScreen");
-  };
-
   const navigateToCreditsScreen = () => {
     navigation.navigate("CreditsScreen");
   };
@@ -61,11 +57,6 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
           <PrimaryButton
             title={"Show list"}
             handleOnClick={navigateToListScreen}
-          ></PrimaryButton>
-
-          <PrimaryButton
-            title={"Show map"}
-            handleOnClick={navigateToMapScreen}
           ></PrimaryButton>
 
           <PrimaryButton
