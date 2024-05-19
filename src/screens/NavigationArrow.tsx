@@ -15,9 +15,16 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
     let info_text
     let navigation_callback
     let button_text
+    let prefix
     const current_stand_name = data.stands[current_stand_id].name
     const next_stand_name = data.stands[next_stand_id].name
-    const prefix = `Jesteś przy stanowisku ${current_stand_name} (${current_stand_id}). Kieruj się do stanowiska ${next_stand_name} (${next_stand_id}).`
+    
+    if (current_stand_id == 2137){
+        prefix = `Jesteś przy wejściu na piętro. Kieruj się do stanowiska ${next_stand_name} (${next_stand_id}).`
+    }
+    else{
+        prefix = `Jesteś przy stanowisku ${current_stand_name} (${current_stand_id}). Kieruj się do stanowiska ${next_stand_name} (${next_stand_id}).`
+    }
 
     if (change_floor) {
         info_text = `${prefix} Kieruj się do klatki schodowej, idź na piętro ${data.stands[next_stand_id].floor} i ustaw się przodem do drzwi`
@@ -81,7 +88,7 @@ const styles = StyleSheet.create({
     topText: {
         textAlign: 'center',
         margin: 10,
-        fontSize: 34,
+        fontSize: 24,
         fontWeight: "bold",
         position: 'absolute',
         top: 0,
@@ -108,6 +115,6 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 30,
-        fontWeight: 500
+        fontWeight: "bold"
     },
 })
