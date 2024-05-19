@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainScreen from "./src/screens/MainScreen";
 import QrScanScreen from "./src/screens/QrScanScreen";
 import { NavigationArrow } from "./src/screens/NavigationArrow";
-import { StackParams } from "./types";
+import { StackParams } from "./src/types";
 
 
 export const Stack = createNativeStackNavigator<StackParams>();
@@ -12,7 +12,7 @@ export const Stack = createNativeStackNavigator<StackParams>();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="NavigationArrow">
+      <Stack.Navigator initialRouteName="MainScreen">
         <Stack.Screen name="NavigationArrow" component={NavigationArrow} />
       </Stack.Navigator>
     </NavigationContainer>
@@ -20,3 +20,30 @@ function App() {
 }
 
 export default App;
+
+
+const hardcoded_json = {
+  tags: {
+    0: {
+      position: {
+        x: 1.0,
+        y: 1.0
+      },
+      angle: 0.0,
+    },
+    1: {
+      position: {
+        x: 2.0,
+        y: 4.0
+      },
+      angle: 120.0,
+    },
+    2: {
+      position: {
+        x: 5.0,
+        y: 6.0
+      },
+      angle: 0.0,
+    },
+  }
+}

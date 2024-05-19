@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { NavigationArrowProps, Position } from '../../types';
+import { NavigationArrowProps, Position } from './src/types';
 
 
 export function NavigationArrow({ navigation, route }: NavigationArrowProps) {

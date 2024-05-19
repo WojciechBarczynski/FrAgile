@@ -22,7 +22,8 @@ export type Data = {
 }
 
 export type StackParams = {
-    NavigationArrow: NavigationArrowArgs
+    NavigationArrow: NavigationArrowArgs,
+    MainScreen: undefined
 }
 
 export type NavigationArrowNavigationProp = StackNavigationProp<StackParams, 'NavigationArrow'>
