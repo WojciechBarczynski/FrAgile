@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {Text, StyleSheet, TouchableOpacity, Button} from "react-native";
+import React, { useState } from "react";
+import { Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import {
     NestableDraggableFlatList,
     NestableScrollContainer,
@@ -8,17 +8,12 @@ import {
 } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import stands from "../../config/stands.json";
-import {Checkbox} from "expo-checkbox";
+import { Checkbox } from "expo-checkbox";
+import { CommonArgs, StackParams } from "../types";
+import { StackNavigationProp } from "@react-navigation/stack";
 
-const NUM_ITEMS = stands.stands.length
+const NUM_ITEMS = Object.keys(stands.stands).length
 const COLOR = 'rgb(0, 153, 255)'
-
-// unused for now
-function getColor(i: number) {
-    const multiplier = 255 / (NUM_ITEMS - 1);
-    const colorVal = i * multiplier;
-    return `rgb(${colorVal}, ${Math.abs(128 - colorVal)}, ${255 - colorVal})`;
-}
 
 type Item = {
     key: string;
@@ -28,17 +23,17 @@ type Item = {
 };
 
 const initialData: Item[] = [...Array(NUM_ITEMS)].map((d, index) => {
-    // const backgroundColor = getColor(index);
-    const stand = stands.stands.at(index);
+    // @ts-ignore
+    const stand = stands.stands[index.toString()];
     return {
         key: `item-${index}`,
-        label: `${stand!.id}. ${stand!.title} - ${stand!.text}`, //undefined
+        label: `${stand["room"]} ${stand["name"]}} - ${stand["description"]}`, //undefined
         backgroundColor: COLOR,
         id: index,
     };
 });
 
-export default function List() {
+export default function List({ navigation: navigation }: { navigation: StackNavigationProp<StackParams, 'List'> }) {
     const [data, setData] = useState(initialData);
     const [chosenList, setChosenList] = useState(new Array(NUM_ITEMS).fill(true));
     const handleOnChange = (position: number) => {
@@ -46,7 +41,7 @@ export default function List() {
         setChosenList(updatedList)
     }
 
-    const renderItem = ({ item, drag, isActive}: RenderItemParams<Item>) => {
+    const renderItem = ({ item, drag, isActive }: RenderItemParams<Item>) => {
         return (
             <ScaleDecorator>
                 <TouchableOpacity
@@ -54,11 +49,11 @@ export default function List() {
                     disabled={isActive}
                     style={[
                         styles.rowItem,
-                        { backgroundColor: isActive ? "red" : !chosenList.at(item.id) ? "gray" : item.backgroundColor},
+                        { backgroundColor: isActive ? "red" : !chosenList.at(item.id) ? "gray" : item.backgroundColor },
                     ]}
                 >
                     <Checkbox
-                        style={{alignSelf: "center"}}
+                        style={{ alignSelf: "center" }}
                         value={chosenList.at(item.id)}
                         onValueChange={() => handleOnChange(item.id)}
                     />
@@ -70,24 +65,28 @@ export default function List() {
         );
     };
 
-    const formatData = () => {
-        console.log(data.filter((item, index) => chosenList[index])) //do debugowania
-        return data.filter((item, index) => chosenList[index])
+    const submit = () => {
+        const commonArgs: CommonArgs = {
+            data: stands,
+            stands_list: data.filter((_item, index) => chosenList[index]).map(item => item.id),
+        };
+        console.log("commonArgs", commonArgs);
+        navigation.navigate("QrScanScreen", commonArgs);
     }
 
     return (
-        <GestureHandlerRootView style={{marginTop: 25, flex: 1}}>
+        <GestureHandlerRootView style={{flex: 1, backgroundColor: 'skyblue' }}>
             <NestableScrollContainer>
-                <Text style={{fontSize: 32}}>
-                    Przeciągnij elementy, aby ustawić swoje preferencje oraz odhacz stoiska, które cię nie interesują.
+                <Text style={{ margin:10, fontSize: 28, textAlign: 'center' }}>
+                    Zaznacz interesujące Cię stanowiska i ułóż je w kolejności w jakiej chcesz je odwiedzić.
                 </Text>
                 <NestableDraggableFlatList
                     data={data}
-                    onDragEnd={({data}) => {setData(data)}}
+                    onDragEnd={({ data }) => { setData(data) }}
                     keyExtractor={(item) => item.key}
                     renderItem={renderItem}
                 />
-                <Button title={"Submit"}  onPress={formatData} color={"#0059b3"}/>
+                <Button title={"Submit"} onPress={submit} color={"#0059b3"} />
             </NestableScrollContainer>
         </GestureHandlerRootView>
     );

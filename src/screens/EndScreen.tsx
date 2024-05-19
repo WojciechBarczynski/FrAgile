@@ -1,11 +1,8 @@
-import { useState } from "react";
 import { Text, View, Image } from "react-native";
 import { PrimaryButton } from "components/atoms";
 
 
 const EndScreen = ({ navigation }: { navigation: any }) => {
-    const [inputText, setText] = useState('');
-
     const navigateBackToMainScreen = () => {
         navigation.navigate("MainScreen");
     };

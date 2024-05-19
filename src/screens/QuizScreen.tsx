@@ -4,13 +4,11 @@ import Checkbox from 'expo-checkbox';
 import { PrimaryButton } from 'components/atoms';
 import data from '../questions/questions.json';
 
-
 const QuizScreen = ({route, navigation }: {route: any, navigation: any }) => {
   const [isChecked1, setChecked1] = useState(false);
   const [isChecked2, setChecked2] = useState(false);
   const [isChecked3, setChecked3] = useState(false);
   const [isChecked4, setChecked4] = useState(false);
-
 
   const question = data[route.params.questionId] ;
 
@@ -100,4 +98,5 @@ const styles = StyleSheet.create({
   },
 });
 
+      
 export default QuizScreen;
