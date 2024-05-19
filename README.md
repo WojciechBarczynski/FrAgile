@@ -11,6 +11,47 @@ Poza strzałką użytkownik widzi mapę z jego aktualną pozycją i trasą do na
 
 Użytkownik wypełnia quiz / minigrę przy obecnym stanowisku.
 
+
+## Makiety UI
+
+### Ekran startowy
+Na ekranie startowym użytkownik jest powitany i może wybrać swój pseudonim.
+
+<img src="images/start.png" width="256">
+
+### Ekran z listą stanowisk do wyboru
+Użytkownik wybiera interesujące go stanowiska z listy, która zawiera tytuł, króki opis oraz miejsce. Wybór interesujących aktywności odbywa się poprzez zaznaczenie checkboxa.
+
+<img src="images/list.png" width="256">
+
+### Ekran z preferencjami kolejności stanowisk
+Po zaznaczeniu stanowisk użytkownik przechodzi do ekranu z preferencjami kolejności odwiedzania stanowisk. Użytkownik może zmieniać kolejność przeciągając elementy listy.
+
+<img src="images/preferences.png" width="256">
+
+### Ekran z mapą i trasą do następnego stanowiska
+Po zatwierdzeniu kolejności użytkownik przechodzi do ekranu z mapą i trasą do następnego stanowiska.
+
+<img src="images/map.png" width="256">
+
+### Ekran ze skanowaniem kodu QR
+Użutkownik skanuje kod QR na stanowisku lub wpisuje kod.
+
+<img src="images/scaner.png" width="256">
+
+### Ekran z quizem
+Po zeskanowaniu kodu QR użytkownik przechodzi do ekranu z quizem.
+
+<img src="images/quiz.png" width="256">
+
+
+
+# Welcome to your Expo app 👋
+
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
+
+
 ## Get started
 
 1. Install dependencies
