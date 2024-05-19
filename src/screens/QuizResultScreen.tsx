@@ -2,6 +2,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
 import React  from 'react';
 import { NavigationArrowArgs, QuizResultScreenProps } from "../types";
 
+
 export function QuizResultScreen({navigation, route }: QuizResultScreenProps) {
     const handleOnClick = () => {
         if (route.params.commonArgs.stands_list.length > 1) {
@@ -35,7 +36,8 @@ export function QuizResultScreen({navigation, route }: QuizResultScreenProps) {
             </View>
         </View>
     );
-}
+};
+
 
 const styles = StyleSheet.create({
     container: {
