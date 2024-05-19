@@ -20,7 +20,7 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
       <Button
         title="Open QR scanner"
         onPress={() => {
-          console.log('Opening QR scanner');
+          navigation.navigate("QrScanner");
         }}
       />
 
