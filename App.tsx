@@ -9,6 +9,8 @@ import CreditsScreen from "./src/screens/CreditsScreen";
 import EndScreen from "./src/screens/EndScreen";
 import List from "./src/screens/List";
 import { QrScanScreen } from "./src/screens/QrScanScreen";
+import QuizScreen from "./src/screens/QuizScreen";
+import QuizResultScreen from "./src/screens/QuizResultScreen";
 
 
 export const Stack = createNativeStackNavigator<StackParams>();
@@ -49,6 +51,13 @@ function App() {
         <Stack.Screen
           name="EndScreen"
           component={EndScreen} />
+
+        <Stack.Screen 
+          name="QuizScreen"
+          component={QuizScreen} />
+        <Stack.Screen 
+          name="QuizResultScreen"
+          component={QuizResultScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

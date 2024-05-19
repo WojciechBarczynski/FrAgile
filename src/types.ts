@@ -42,6 +42,8 @@ export type StackParams = {
     QrScanner: CommonArgs,
     EndScreen: undefined,
     CreditsScreen: undefined
+    QuizScreen: CommonArgs,
+    QuizResultScreen: CommonArgs
 }
 
 export type NavigationArrowNavigationProp = StackNavigationProp<StackParams, 'NavigationArrow'>
