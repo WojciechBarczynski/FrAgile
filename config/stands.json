@@ -52,7 +52,7 @@
       "angle": 0,
       "floor": 2,
       "room": "3.24",
-      "name": "Matura",
+      "name": "Matura (skull)",
       "description": "Pomoce maturalne"
     },
     "5": {
@@ -66,5 +66,16 @@
       "name": "Projekty",
       "description": "Zobacz zdjęcia"
     }
+  },
+  "staircase": {
+    "position": {
+      "x": 5,
+      "y": 5
+    },
+    "angle": 0,
+    "floor": 0,
+    "room": "klatka",
+    "name": "klatka",
+    "description": "schody"
   }
 }

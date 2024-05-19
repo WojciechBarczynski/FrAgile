@@ -1,7 +1,69 @@
-
 [
     {
-        "Question": "Which of theses languages were named after a mathematician",
+        "Question": "Kto złamał enigmę",
+        "options": [
+            {
+                "content": "Polacy",
+                "correct": true
+            },
+            {
+                "content": "Alan Turing",
+                "correct": false
+            },
+            {
+                "content": "Mateusz Morawiecki",
+                "correct": false
+            },
+            {
+                "content": "Polacy",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "Question": "Kto jest najgłośniejszą osobą na tej sali?",
+        "options": [
+            {
+                "content": "Kasperski",
+                "correct": true
+            },
+            {
+                "content": "Jakub Kasperski",
+                "correct": true
+            },
+            {
+                "content": "Kuba Kasperski",
+                "correct": true
+            },
+            {
+                "content": "libed (debil od tyłu)",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "Question": "Kto wiedział o zbrodniach na dyskretnej",
+        "options": [
+            {
+                "content": "Mariusz Meszka",
+                "correct": false
+            },
+            {
+                "content": "syn Artura Fortuny",
+                "correct": true
+            },
+            {
+                "content": "Artur Fortuna",
+                "correct": true
+            },
+            {
+                "content": "Heinrich Himmler",
+                "correct": false
+            }
+        ]
+    },
+    {
+        "Question": "Który z tych języków programowania są nazwane po znanych matematykach?",
         "options": [
             {
                 "content": "Lua",
@@ -22,14 +84,14 @@
         ]
     },
     {
-        "Question": "What is dean's favourite language",
+        "Question": "Jaki jest ulubiony język programowania Dziekana?",
         "options": [
             {
                 "content": "Pascal",
                 "correct": false
             },
             {
-                "content": "Haskell",
+                "content": "Holy C",
                 "correct": false
             },
             {
@@ -38,6 +100,27 @@
             },
             {
                 "content": "Icon",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "Question": "Jaki klocek pasuje do kwadratowej dziury",
+        "options": [
+            {
+                "content": "okrągły",
+                "correct": true
+            },
+            {
+                "content": "trójkątny",
+                "correct": true
+            },
+            {
+                "content": "kwadratowy",
+                "correct": true
+            },
+            {
+                "content": "prostokątny",
                 "correct": true
             }
         ]
