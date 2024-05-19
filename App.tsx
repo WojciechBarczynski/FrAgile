@@ -6,8 +6,8 @@ import QrScanScreen from "./src/screens/QrScanScreen";
 import { NavigationArrow } from "./src/screens/NavigationArrow";
 import { StackParams } from "./src/types";
 import QrScanner from "./src/screens/QrScan";
+import EndScreen from "./src/screens/EndScreen";
 import List from "./src/screens/List";
-
 
 export const Stack = createNativeStackNavigator<StackParams>();
 
@@ -20,6 +20,7 @@ function App() {
         <Stack.Screen name="QrScanScreen" component={QrScanScreen} />
         <Stack.Screen name="List" component={List} />
         <Stack.Screen name="QrScanner" component={QrScanner} />
+        <Stack.Screen name="EndScreen" component={EndScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
