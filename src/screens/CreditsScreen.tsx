@@ -11,7 +11,7 @@ const CreditsScreen = ({ navigation }: { navigation: any }) => {
         <Text style={styles.text}>Wojciech "Tarczyński" Barczyński</Text>
         <Text style={styles.text}>Paweł "Pawko" Lamża</Text>
         <Text style={styles.text}>Jakub "Śruba" Pryc</Text>
-        <Text style={styles.text}>Weronika "Wero" Klatka</Text>
+        <Text style={styles.text}>Weronika "Werø" Klatka</Text>
       </View>
       <Button title="Back" onPress={() => navigation.goBack()} />
     </View>

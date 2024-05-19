@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { Text, StyleSheet, TouchableOpacity, Button } from "react-native";
 import {
-    NestableDraggableFlatList,
-    NestableScrollContainer,
     RenderItemParams,
     ScaleDecorator
 } from "react-native-draggable-flatlist";
+import DraggableFlatList from 'react-native-draggable-flatlist'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import stands from "../../config/stands.json";
 import { Checkbox } from "expo-checkbox";
-import { CommonArgs, StackParams } from "../types";
+import {CommonArgs, StackParams} from "../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 const NUM_ITEMS = Object.keys(stands.stands).length
@@ -74,20 +73,22 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
         navigation.navigate("QrScanScreen", commonArgs);
     }
 
+    // commented lines for scrollable content
     return (
         <GestureHandlerRootView style={{ flex: 1, backgroundColor: 'skyblue' }}>
-            <NestableScrollContainer>
+            {/*<NestableScrollContainer>*/}
                 <Text style={{ margin: 10, fontSize: 28, textAlign: 'center' }}>
                     Zaznacz interesujące Cię stanowiska i ułóż je w kolejności w jakiej chcesz je odwiedzić.
                 </Text>
-                <NestableDraggableFlatList
+                {/*<NestableDraggableFlatList*/}
+                <DraggableFlatList
                     data={data}
                     onDragEnd={({ data }) => { setData(data) }}
                     keyExtractor={(item) => item.key}
                     renderItem={renderItem}
                 />
                 <Button title={"Submit"} onPress={submit} color={"#0059b3"} />
-            </NestableScrollContainer>
+            {/*</NestableScrollContainer>*/}
         </GestureHandlerRootView>
     );
 }
