@@ -25,38 +25,48 @@ function App() {
 
         <Stack.Screen
           name="List"
-          component={List} />
+          component={List}
+          options={{ title: "Lista", headerTitleAlign: 'center' }}
+        />
 
         <Stack.Screen
           name="QrScanScreen"
           component={QrScanScreen}
-         />
+          options={{ title: "Start", headerTitleAlign: 'center' }}
+        />
 
         <Stack.Screen
           name="QrScanner"
           component={QrScanner}
-          options={{ title: "Scan QR code", headerTitleAlign: 'center' }} />
+          options={{ title: "Skanowanie kodu QR", headerTitleAlign: 'center' }} />
 
         <Stack.Screen
           name="NavigationArrow"
           component={NavigationArrow}
+          options={{ title: "Nawigacja", headerTitleAlign: 'center' }}
         />
 
         <Stack.Screen
           name="CreditsScreen"
           component={CreditsScreen}
-          options={{ title: "Credits", headerTitleAlign: 'center' }} />
+          options={{ title: "Autorzy", headerTitleAlign: 'center' }} />
 
         <Stack.Screen
           name="EndScreen"
-          component={EndScreen} />
+          component={EndScreen}
+          options={{ title: "Koniec", headerTitleAlign: 'center' }}
+        />
 
-        <Stack.Screen 
+        <Stack.Screen
           name="QuizScreen"
-          component={QuizScreen} />
-        <Stack.Screen 
+          component={QuizScreen}
+          options={{ title: "Quiz", headerTitleAlign: 'center' }}
+        />
+        <Stack.Screen
           name="QuizResultScreen"
-          component={QuizResultScreen} />
+          component={QuizResultScreen}
+          options={{ title: "Wynik", headerTitleAlign: 'center' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
