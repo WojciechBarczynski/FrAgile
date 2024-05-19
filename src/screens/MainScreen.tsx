@@ -22,30 +22,22 @@ export const mainStyle = StyleSheet.create({
 });
 
 const MainScreen = ({ navigation }: { navigation: any }) => {
-  const navigateToQrScanScreen = () => {
-    navigation.navigate("QrScanScreen");
-  };
-
-  const navigateToListScreen = () => {
-    navigation.navigate("List");
-  };
+  const navigateToStationListScreen = () => {
+    navigation.navigate("StationList", {});
+  }
 
   return (
     <View style={[{ flex: 1 }]}>
       <SafeAreaView style={mainStyle.container}>
+        <Title title=" 💀 FrAgile 💀 " />
         <Image
           style={mainStyle.logo}
           source={require("../../assets/logo.png")}
         />
-        <Title title="FrAgile" />
         <View style={mainStyle.container}>
           <PrimaryButton
-            title={"Skanuj kod QR"}
-            handleOnClick={navigateToQrScanScreen}
-          ></PrimaryButton>
-          <PrimaryButton
               title={"Wybierz stanowiska"}
-              handleOnClick={navigateToListScreen}
+              handleOnClick={navigateToStationListScreen}
           ></PrimaryButton>
         </View>
       </SafeAreaView>

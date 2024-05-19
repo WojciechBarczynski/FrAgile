@@ -5,6 +5,7 @@ import { NavigationArrowProps, Position } from '../types';
 
 
 export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
+    
     const image = require('../../assets/images/arrow.png')
 
     const data = route.params.data

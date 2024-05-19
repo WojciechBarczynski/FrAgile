@@ -9,6 +9,7 @@ import {
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import stands from "../../config/stands.json";
 import {Checkbox} from "expo-checkbox";
+import { CurrentState } from "../types";
 
 const NUM_ITEMS = stands.stands.length
 const COLOR = 'rgb(0, 153, 255)'
@@ -38,7 +39,18 @@ const initialData: Item[] = [...Array(NUM_ITEMS)].map((d, index) => {
     };
 });
 
-export default function List() {
+function submit(navigate: any, data: any[], chosenList: Item[]) {
+    const stationList = data.filter((item) => chosenList[item.id]).map((item) => item.label);
+    console.log(stationList);
+    const state: CurrentState = { stationList };
+    navigate(state);
+}
+
+export default function StationListScreen({ navigation }: { navigation: any }) {
+    const navigateToArrow = (state: CurrentState) => {
+        navigation.navigate("StationList", {state});
+    };
+
     const [data, setData] = useState(initialData);
     const [chosenList, setChosenList] = useState(new Array(NUM_ITEMS).fill(true));
     const handleOnChange = (position: number) => {
@@ -70,11 +82,6 @@ export default function List() {
         );
     };
 
-    const formatData = () => {
-        console.log(data.filter((item, index) => chosenList[index])) //do debugowania
-        return data.filter((item, index) => chosenList[index])
-    }
-
     return (
         <GestureHandlerRootView style={{marginTop: 25, flex: 1}}>
             <NestableScrollContainer>
@@ -87,7 +94,7 @@ export default function List() {
                     keyExtractor={(item) => item.key}
                     renderItem={renderItem}
                 />
-                <Button title={"Submit"}  onPress={formatData} color={"#0059b3"}/>
+                <Button title={"Submit"}  onPress={() => submit(navigateToArrow, data, chosenList)} color={"#0059b3"}/>
             </NestableScrollContainer>
         </GestureHandlerRootView>
     );

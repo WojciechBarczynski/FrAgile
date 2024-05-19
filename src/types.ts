@@ -36,3 +36,9 @@ export interface NavigationArrowProps {
     navigation: NavigationArrowNavigationProp
     route: NavigationArrowRouteProp
 }
+
+
+export type CurrentState = {
+    stationList: number[]
+    lastStationId?: number,
+}
