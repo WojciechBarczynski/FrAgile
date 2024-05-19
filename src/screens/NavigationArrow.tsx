@@ -11,9 +11,9 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
     const current_stand_id = route.params.current_stand_id
     const next_stand_id = route.params.next_stand_id
 
-    const current_stand_position = data.tags[current_stand_id].position
-    const current_stand_angle = data.tags[current_stand_id].angle
-    const next_stand_position = data.tags[next_stand_id].position
+    const current_stand_position = data.stands[current_stand_id].position
+    const current_stand_angle = data.stands[current_stand_id].angle
+    const next_stand_position = data.stands[next_stand_id].position
 
     const rotationAngle = getArrowAngle(current_stand_position, current_stand_angle, next_stand_position)
 

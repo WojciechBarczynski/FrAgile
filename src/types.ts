@@ -12,12 +12,18 @@ export type Position = {
     y: number
 }
 
+export type StandInfo = {
+    position: Position,
+    angle: number,
+    floor: number,
+    room: string,
+    name: string,
+    description: string
+}
+
 export type Data = {
-    tags: {
-        [key: number]: {
-            position: Position,
-            angle: number
-        }
+    stands: {
+        [key: number]: StandInfo
     }
 }
 
@@ -26,7 +32,8 @@ export type StackParams = {
     MainScreen: undefined,
     StartScreen: undefined,
     QrScanScreen: undefined,
-    QrScanner: undefined
+    QrScanner: undefined,
+    List: undefined
 }
 
 export type NavigationArrowNavigationProp = StackNavigationProp<StackParams, 'NavigationArrow'>
