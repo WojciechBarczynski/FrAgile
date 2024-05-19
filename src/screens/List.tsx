@@ -1,12 +1,15 @@
 import React, {useState} from "react";
-import {Text, StyleSheet, TouchableOpacity, Button} from "react-native";
-import DraggableFlatList, { RenderItemParams, ScaleDecorator } from "react-native-draggable-flatlist";
+import {Text, StyleSheet, TouchableOpacity, Button, ScrollView, View} from "react-native";
+import DraggableFlatList, {
+    NestableDraggableFlatList,
+    NestableScrollContainer,
+    RenderItemParams,
+    ScaleDecorator
+} from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import stands from "./stands.json";
+import stands from "../../config/stands.json";
 import {Checkbox} from "expo-checkbox";
-import {ThemedText} from "@/components/ThemedText";
-import {NavigationContainer} from "@react-navigation/native";
-import { Stack } from "expo-router";
+import Title from "components/atoms/Title";
 
 const NUM_ITEMS = stands.stands.length
 const COLOR = 'rgb(0, 153, 255)'
@@ -63,29 +66,30 @@ export default function List() {
                     <Text style={styles.text}>
                         {item.label}
                     </Text>
-
                 </TouchableOpacity>
             </ScaleDecorator>
         );
     };
 
     const formatData = () => {
-        console.log(data.filter((item, index) => chosenList[index]))
+        console.log(data.filter((item, index) => chosenList[index])) //do debugowania
         return data.filter((item, index) => chosenList[index])
     }
 
     return (
         <GestureHandlerRootView style={{marginTop: 25, flex: 1}}>
-            <ThemedText type="title">
-                Drag items to set your preferences and check out stands you're not interested in.
-            </ThemedText>
-            <DraggableFlatList
-                data={data}
-                onDragEnd={({data}) => {setData(data); console.log(data); console.log(chosenList);}}
-                keyExtractor={(item) => item.key}
-                renderItem={renderItem}
-            />
-            <Button title={"Submit"}  onPress={formatData} color={"#0059b3"}/>
+            <NestableScrollContainer>
+                <Text style={{fontSize: 32}}>
+                    Przeciągnij elementy, aby ustawić swoje preferencje oraz odhacz stoiska, które cię nie interesują.
+                </Text>
+                <NestableDraggableFlatList
+                    data={data}
+                    onDragEnd={({data}) => {setData(data)}}
+                    keyExtractor={(item) => item.key}
+                    renderItem={renderItem}
+                />
+                <Button title={"Submit"}  onPress={formatData} color={"#0059b3"}/>
+            </NestableScrollContainer>
         </GestureHandlerRootView>
     );
 }
@@ -93,9 +97,11 @@ export default function List() {
 const styles = StyleSheet.create({
     rowItem: {
         height: "auto",
-        width: "auto",
-        padding: 15,
-        flexDirection: "row"
+        width: "80%",
+        padding: 10,
+        margin: 3,
+        flexDirection: "row",
+        alignSelf: "center"
     },
     text: {
         color: "white",
