@@ -1,52 +1,70 @@
 {
-  "stands": [
-    {
-      "id": 105,
-      "title": "BIT",
-      "icon": "🍌",
-      "text": "Koło naukowe"
+  "stands": {
+    "0": {
+      "position": {
+        "x": 1,
+        "y": 1
+      },
+      "angle": 3.14,
+      "floor": 1,
+      "room": "1.38",
+      "name": "Wykład",
+      "description": "Info dump o kierunku"
     },
-    {
-      "id": 103,
-      "title": "Matura",
-      "icon": "🍋",
-      "text": "Pomoce maturalne"
+    "1": {
+      "position": {
+        "x": 2,
+        "y": 2
+      },
+      "angle": 0,
+      "floor": 2,
+      "room": "2.41",
+      "name": "BIT",
+      "description": "Koło naukowe"
     },
-    {
-      "id": 205,
-      "title": "WDI",
-      "icon": "🍐",
-      "text": "Big boss"
+    "2": {
+      "position": {
+        "x": 5,
+        "y": 6
+      },
+      "angle": 0,
+      "floor": 2,
+      "room": "3.22",
+      "name": "Matura",
+      "description": "Pomoce maturalne"
     },
-    {
-      "id": 214,
-      "title": "Dyskretna",
-      "icon": "🍓",
-      "text": "Grafy :)"
+    "3": {
+      "position": {
+        "x": 7,
+        "y": 7
+      },
+      "angle": 0,
+      "floor": 2,
+      "room": "3.23",
+      "name": "WDI",
+      "description": "BIG BOSS"
     },
-    {
-      "id": 315,
-      "title": "Projekty",
-      "icon": "🍊",
-      "text": "Zobacz zdjęcia"
+    "4": {
+      "position": {
+        "x": 8,
+        "y": 9
+      },
+      "angle": 0,
+      "floor": 2,
+      "room": "3.24",
+      "name": "Matura",
+      "description": "Pomoce maturalne"
     },
-    {
-      "id": 316,
-      "title": "Projekty",
-      "icon": "🍊",
-      "text": "Zobacz zdjęcia"
-    },
-    {
-      "id": 317,
-      "title": "Projekty",
-      "icon": "🍊",
-      "text": "Zobacz zdjęcia"
-    },
-    {
-      "id": 666,
-      "title": "Test",
-      "icon": "🍊",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    "5": {
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "angle": 0,
+      "floor": 2,
+      "room": "3.27a",
+      "name": "Projekty",
+      "description": "Zobacz zdjęcia"
     }
-  ]
+  }
 }
