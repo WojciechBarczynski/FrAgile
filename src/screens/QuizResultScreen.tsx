@@ -1,10 +1,8 @@
-import {View, Text} from "react-native";
+import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
 import React  from 'react';
 import { NavigationArrowArgs, QuizResultScreenProps } from "../types";
-import { PrimaryButton } from "components/atoms";
 
-
-const QuizResultScreen = ({navigation, route }: QuizResultScreenProps) => {
+export function QuizResultScreen({navigation, route }: QuizResultScreenProps) {
     const handleOnClick = () => {
         if (route.params.commonArgs.stands_list.length > 1) {
             route.params.commonArgs.stands_list.shift();
@@ -25,14 +23,64 @@ const QuizResultScreen = ({navigation, route }: QuizResultScreenProps) => {
     else msg = "Incorrect";
 
     return (
-        <View>
-            <Text>{msg}</Text>
-            <PrimaryButton
-              title="Next"
-              handleOnClick={handleOnClick}
-            />
+        <View style={styles.container}>
+            <View style={styles.card}>
+                <Text style={[styles.message]}>{msg}</Text>
+                <TouchableOpacity 
+                    style={styles.button} 
+                    onPress={handleOnClick}
+                >
+                    <Text style={styles.buttonText}>Next task</Text>
+                </TouchableOpacity>
+            </View>
         </View>
-  );
-};
+    );
+}
 
-export default QuizResultScreen;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#E8F4F8',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 16,
+    },
+    card: {
+        backgroundColor: '#FFF',
+        padding: 20,
+        borderRadius: 10,
+        shadowColor: '#000',
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
+        elevation: 3,
+        width: '100%',
+        alignItems: 'center',
+    },
+    message: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 20,
+    },
+    correct: {
+        color: 'green',
+    },
+    incorrect: {
+        color: 'red',
+    },
+    button: {
+        backgroundColor: '#007BFF',
+        padding: 15,
+        borderRadius: 8,
+        alignItems: 'center',
+        marginTop: 20,
+        width: '80%',
+    },
+    homeButton: {
+        backgroundColor: '#6C757D',
+    },
+    buttonText: {
+        color: '#FFF',
+        fontSize: 16,
+        fontWeight: 'bold',
+    },
+});

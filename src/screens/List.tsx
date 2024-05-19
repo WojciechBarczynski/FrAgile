@@ -22,15 +22,14 @@ type Item = {
     id: number;
 };
 
-const initialData: Item[] = [...Array(NUM_ITEMS)].map((d, index) => {
+const initialData: Item[] = Object.entries(stands.stands).map(([index, stand]) => {
     // const backgroundColor = getColor(index);
-    // @ts-ignore
-    const stand = stands.stands[index.toString()];
+    // const stand = stands.stands[index.toString()];
     return {
         key: `item-${index}`,
         label: `${stand["room"]} ${stand["name"]}} - ${stand["description"]}`, //undefined
         backgroundColor: COLOR,
-        id: index,
+        id: parseInt(index),
     };
 });
 
@@ -67,6 +66,8 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
     };
 
     const submit = () => {
+        // @ts-ignore
+        stands.stands[2137] = staircase
         const commonArgs: CommonArgs = {
             data: stands,
             stands_list: data.filter((_item, index) => chosenList[index]).map(item => item.id),
@@ -76,10 +77,10 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
     }
 
     return (
-        <GestureHandlerRootView style={{ marginTop: 25, flex: 1 }}>
+        <GestureHandlerRootView style={{ flex: 1, backgroundColor: 'skyblue' }}>
             <NestableScrollContainer>
-                <Text style={{ fontSize: 32 }}>
-                    Przeciągnij elementy, aby ustawić swoje preferencje oraz odhacz stoiska, które cię nie interesują.
+                <Text style={{ margin: 10, fontSize: 28, textAlign: 'center' }}>
+                    Zaznacz interesujące Cię stanowiska i ułóż je w kolejności w jakiej chcesz je odwiedzić.
                 </Text>
                 <NestableDraggableFlatList
                     data={data}
@@ -91,6 +92,19 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
             </NestableScrollContainer>
         </GestureHandlerRootView>
     );
+}
+
+const staircase =
+{
+    position: {
+        x: 5,
+        y: 5
+    },
+    angle: 0,
+    floor: 0,
+    room: "klatka",
+    name: "klatka",
+    description: "schody"
 }
 
 const styles = StyleSheet.create({
