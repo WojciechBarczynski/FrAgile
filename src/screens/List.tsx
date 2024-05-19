@@ -8,7 +8,7 @@ import DraggableFlatList from 'react-native-draggable-flatlist'
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import stands from "../../config/stands.json";
 import { Checkbox } from "expo-checkbox";
-import { CommonArgs, StackParams } from "../types";
+import {CommonArgs, StackParams} from "../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 const NUM_ITEMS = Object.keys(stands.stands).length
