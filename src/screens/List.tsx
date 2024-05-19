@@ -23,11 +23,9 @@ type Item = {
 };
 
 const initialData: Item[] = Object.entries(stands.stands).map(([index, stand]) => {
-    // const backgroundColor = getColor(index);
-    // const stand = stands.stands[index.toString()];
     return {
         key: `item-${index}`,
-        label: `${stand["room"]} ${stand["name"]}} - ${stand["description"]}`, //undefined
+        label: `${stand["room"]} ${stand["name"]} - ${stand["description"]}`, //undefined
         backgroundColor: COLOR,
         id: parseInt(index),
     };
