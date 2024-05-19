@@ -26,6 +26,10 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
     navigation.navigate("QrScanScreen");
   };
 
+  const navigateToListScreen = () => {
+    navigation.navigate("List");
+  };
+
   return (
     <View style={[{ flex: 1 }]}>
       <SafeAreaView style={mainStyle.container}>
@@ -38,6 +42,10 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
           <PrimaryButton
             title={"Skanuj kod QR"}
             handleOnClick={navigateToQrScanScreen}
+          ></PrimaryButton>
+          <PrimaryButton
+              title={"Wybierz stanowiska"}
+              handleOnClick={navigateToListScreen}
           ></PrimaryButton>
         </View>
       </SafeAreaView>
