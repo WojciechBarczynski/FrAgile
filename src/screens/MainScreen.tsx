@@ -5,12 +5,6 @@ import { Image, SafeAreaView, StyleSheet, View } from "react-native";
 
 
 const MainScreen = ({ navigation }: { navigation: any }) => {
-
-  // Navigation functions
-  const navigateToQrScanScreen = () => {
-    navigation.navigate("QrScanScreen");
-  };
-
   const navigateToListScreen = () => {
     navigation.navigate("List");
   };
@@ -19,8 +13,6 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
     navigation.navigate("CreditsScreen");
   };
 
-
-  // Layout
   return (
     <View style={[{ flex: 1 }]}>
       <SafeAreaView style={mainStyle.container}>
@@ -30,14 +22,8 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
           source={require("../../assets/logo.png")}
         />
         <View style={mainStyle.container}>
-
           <PrimaryButton
-            title={"Scan QR Code"}
-            handleOnClick={navigateToQrScanScreen}
-          ></PrimaryButton>
-
-          <PrimaryButton
-            title={"Show list"}
+            title={"Wybierz stanowiska"}
             handleOnClick={navigateToListScreen}
           ></PrimaryButton>
 

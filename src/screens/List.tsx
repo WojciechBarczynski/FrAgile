@@ -9,10 +9,10 @@ import {
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import stands from "../../config/stands.json";
 import { Checkbox } from "expo-checkbox";
-import { StackParams } from "../types";
+import { CommonArgs, StackParams } from "../types";
 import { StackNavigationProp } from "@react-navigation/stack";
 
-const NUM_ITEMS = stands.stands.length
+const NUM_ITEMS = Object.keys(stands.stands).length
 const COLOR = 'rgb(0, 153, 255)'
 
 type Item = {
@@ -23,10 +23,11 @@ type Item = {
 };
 
 const initialData: Item[] = [...Array(NUM_ITEMS)].map((d, index) => {
-    const stand = stands.stands.at(index);
+    // @ts-ignore
+    const stand = stands.stands[index.toString()];
     return {
         key: `item-${index}`,
-        label: `${stand!.id}. ${stand!.title} - ${stand!.text}`, //undefined
+        label: `${stand["room"]} ${stand["name"]}} - ${stand["description"]}`, //undefined
         backgroundColor: COLOR,
         id: index,
     };
@@ -64,9 +65,13 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
         );
     };
 
-    const formatData = () => {
-        console.log(data.filter((item, index) => chosenList[index])) //do debugowania
-        return data.filter((item, index) => chosenList[index])
+    const submit = () => {
+        const commonArgs: CommonArgs = {
+            data: stands,
+            stands_list: data.filter((_item, index) => chosenList[index]).map(item => item.id),
+        };
+        console.log("commonArgs", commonArgs);
+        navigation.navigate("QrScanScreen", commonArgs);
     }
 
     return (
@@ -81,7 +86,7 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
                     keyExtractor={(item) => item.key}
                     renderItem={renderItem}
                 />
-                <Button title={"Submit"} onPress={formatData} color={"#0059b3"} />
+                <Button title={"Submit"} onPress={submit} color={"#0059b3"} />
             </NestableScrollContainer>
         </GestureHandlerRootView>
     );
