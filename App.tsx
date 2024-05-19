@@ -1,18 +1,19 @@
 import * as React from "react";
-import {NavigationContainer} from "@react-navigation/native";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainScreen from "./src/screens/MainScreen";
 import QrScanScreen from "./src/screens/QrScanScreen";
+import { NavigationArrow } from "./src/screens/NavigationArrow";
+import { StackParams } from "./types";
 
 
-const Stack = createNativeStackNavigator();
+export const Stack = createNativeStackNavigator<StackParams>();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="StartScreen">
-        <Stack.Screen name="MainScreen" component={MainScreen} />
-        <Stack.Screen name="QrScanScreen" component={QrScanScreen} />
+      <Stack.Navigator initialRouteName="NavigationArrow">
+        <Stack.Screen name="NavigationArrow" component={NavigationArrow} />
       </Stack.Navigator>
     </NavigationContainer>
   );
