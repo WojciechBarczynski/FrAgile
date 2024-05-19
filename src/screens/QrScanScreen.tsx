@@ -1,19 +1,9 @@
 import { PrimaryButton, Title } from "components/atoms";
 import { useState } from "react";
 import { TextInput, View } from "react-native";
+import { QrScanScreenProps } from "../types";
 
-const rooms = [{
-  id: 1,
-  name: 'Room 1',
-}, {
-  id: 2,
-  name: 'Room 2',
-}, {
-  id: 3,
-  name: 'Room 3',
-}];
-
-const QrScanScreen = ({ navigation }: { navigation: any }) => {
+export function QrScanScreen({ navigation, route }: QrScanScreenProps) {
   const [inputText, setText] = useState('');
 
   return (
@@ -21,7 +11,7 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
       <PrimaryButton
         title="Open QR scanner"
         handleOnClick={() => {
-          navigation.navigate("QrScanner");
+          navigation.navigate("QrScanner", route.params);
         }}
       />
 
@@ -37,18 +27,22 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
       <PrimaryButton
         title="Submit QR code number"
         handleOnClick={() => {
-          if (rooms.find(room => room.id.toString() === inputText)) {
-            console.log('Room found');
-          } else if (inputText === 'end') {
-            navigation.navigate("EndScreen");
+          if (route.params.data.stands.hasOwnProperty(inputText)) {
+            if (route.params.stands_list[0].toString()  === inputText) {
+              console.log(`You are on right station! Display quiz here!`);
+            } else {
+              console.log(`You are on wrong station!`);
+              navigation.navigate("NavigationArrow", {
+                common_args: route.params,
+                current_stand_id: parseInt(inputText),
+                next_stand_id: route.params.stands_list[0],
+              });
+            }
           } else {
-            navigation.navigate("QuizScreen", {questionId: 0});
-            console.log('Room not found');
+            console.log(`Such station doesn't exist!`);
           }
         }}
       />
     </View>
   );
 };
-
-export default QrScanScreen;
