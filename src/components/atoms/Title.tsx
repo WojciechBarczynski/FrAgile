@@ -15,7 +15,7 @@ export const titleStyle = StyleSheet.create({
     paddingHorizontal: paddingSize.small,
   },
   text: {
-    color: primaryColors.goldYellow,
+    color: primaryColors.darkBlue,
     alignSelf: "center",
     fontSize: fontSize.h2MobileFontSize,
     fontWeight: "700",
