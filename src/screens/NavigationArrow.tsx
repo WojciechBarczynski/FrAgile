@@ -27,7 +27,7 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
                 <Image source={image} style={[styles.image, { transform: [{ rotate: rotationAngle }] }]} />
             </View>
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => console.log('Change screen')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('QrScanScreen')}>
                     <Text style={styles.buttonText}>Scan Code</Text>
                 </TouchableOpacity>
             </View>
