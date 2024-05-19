@@ -1,7 +1,8 @@
-import { PrimaryButton, Title } from "components/atoms";
+import { PrimaryButton, Title } from "../components/atoms";
 import { useState } from "react";
 import { TextInput, View, StyleSheet, Text } from "react-native";
 import { QrScanScreenProps } from "../types";
+import React from "react";
 
 export function QrScanScreen({ navigation, route }: QrScanScreenProps) {
   const [inputText, setText] = useState('');
@@ -30,8 +31,8 @@ export function QrScanScreen({ navigation, route }: QrScanScreenProps) {
         title="Submit QR code number"
         handleOnClick={() => {
           if (route.params.data.stands.hasOwnProperty(inputText)) {
-            if (route.params.stands_list[0].toString()  === inputText) {
-              console.log(`You are on right station! Display quiz here!`);
+            if (route.params.stands_list[0].toString() === inputText) {
+              navigation.navigate("QuizScreen", route.params);
             } else {
               console.log(`You are on wrong station!`);
               navigation.navigate("NavigationArrow", {
