@@ -72,7 +72,6 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
             title={"Credits"}
             handleOnClick={navigateToCreditsScreen}
           ></PrimaryButton>
-
         </View>
       </SafeAreaView>
     </View>

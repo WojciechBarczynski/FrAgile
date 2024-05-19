@@ -1,0 +1,52 @@
+{
+  "stands": [
+    {
+      "id": 105,
+      "title": "BIT",
+      "icon": "🍌",
+      "text": "Koło naukowe"
+    },
+    {
+      "id": 103,
+      "title": "Matura",
+      "icon": "🍋",
+      "text": "Pomoce maturalne"
+    },
+    {
+      "id": 205,
+      "title": "WDI",
+      "icon": "🍐",
+      "text": "Big boss"
+    },
+    {
+      "id": 214,
+      "title": "Dyskretna",
+      "icon": "🍓",
+      "text": "Grafy :)"
+    },
+    {
+      "id": 315,
+      "title": "Projekty",
+      "icon": "🍊",
+      "text": "Zobacz zdjęcia"
+    },
+    {
+      "id": 316,
+      "title": "Projekty",
+      "icon": "🍊",
+      "text": "Zobacz zdjęcia"
+    },
+    {
+      "id": 317,
+      "title": "Projekty",
+      "icon": "🍊",
+      "text": "Zobacz zdjęcia"
+    },
+    {
+      "id": 666,
+      "title": "Test",
+      "icon": "🍊",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    }
+  ]
+}
