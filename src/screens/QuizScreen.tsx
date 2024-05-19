@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import data from "../questions/questions.json";
 import Checkbox from 'expo-checkbox'
 import { QuizResult, QuizScreenProps } from "../types";
-import { StyleSheet, Text, SafeAreaView, View, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, ScrollView } from 'react-native';
 import { PrimaryButton } from "../components/atoms";
 
 export function QuizScreen({navigation, route }: QuizScreenProps) {
@@ -22,19 +22,19 @@ export function QuizScreen({navigation, route }: QuizScreenProps) {
           <Text style={styles.question}>{question.Question}</Text>
           <View style={styles.optionsContainer}>
             <View style={styles.option}>
-              <Checkbox value={isChecked1} onValueChange={setChecked1} />
+              <Checkbox color='#095E9F' style={styles.checkbox} value={isChecked1} onValueChange={setChecked1} />
               <Text style={styles.optionText}>{question.options[0].content}</Text>
             </View>
             <View style={styles.option}>
-              <Checkbox value={isChecked2} onValueChange={setChecked2} />
+              <Checkbox color='#095E9F' style={styles.checkbox} value={isChecked2} onValueChange={setChecked2} />
               <Text style={styles.optionText}>{question.options[1].content}</Text>
             </View>
             <View style={styles.option}>
-              <Checkbox value={isChecked3} onValueChange={setChecked3} />
+              <Checkbox color='#095E9F' style={styles.checkbox} value={isChecked3} onValueChange={setChecked3} />
               <Text style={styles.optionText}>{question.options[2].content}</Text>
             </View>
             <View style={styles.option}>
-              <Checkbox value={isChecked4} onValueChange={setChecked4} />
+              <Checkbox color='#095E9F' style={styles.checkbox} value={isChecked4} onValueChange={setChecked4} />
               <Text style={styles.optionText}>{question.options[3].content}</Text>
             </View>
             <PrimaryButton
@@ -66,13 +66,13 @@ export function QuizScreen({navigation, route }: QuizScreenProps) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#E8F4F8',
+    backgroundColor: 'skyblue',
     padding: 16,
   },
   contentContainer: {
     flexGrow: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'center'
   },
   card: {
     backgroundColor: '#FFF',
@@ -83,9 +83,14 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 3,
     width: '100%',
+    gap: 10
+  },
+  checkbox: {
+    width: 30,
+    height: 30
   },
   question: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
@@ -98,13 +103,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 12,
+    gap: 10
   },
   optionText: {
     marginLeft: 8,
-    fontSize: 16,
+    fontSize: 24,
+    fontWeight: 'normal',
     color: '#333',
-  },
-  button: {
-    marginTop: 20,
-  },
+  }
 });

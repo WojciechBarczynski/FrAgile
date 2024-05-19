@@ -9,7 +9,7 @@ const CreditsScreen = ({ navigation }: { navigation: any }) => {
         <Text style={styles.text}>Adam "TumuⓁec" Naumiec</Text>
         <Text style={styles.text}>Michał "DeNiro" Nożkiewicz</Text>
         <Text style={styles.text}>Wojciech "Tarczyński" Barczyński</Text>
-        <Text style={styles.text}>Paweł "Liżma" Lamża</Text>
+        <Text style={styles.text}>Paweł "Pawko" Lamża</Text>
         <Text style={styles.text}>Jakub "Śruba" Pryc</Text>
         <Text style={styles.text}>Weronika "Wero" Klatka</Text>
       </View>
