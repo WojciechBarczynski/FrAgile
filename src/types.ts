@@ -47,6 +47,14 @@ export type StackParams = {
 export type NavigationArrowNavigationProp = StackNavigationProp<StackParams, 'NavigationArrow'>
 export type NavigationArrowRouteProp = RouteProp<StackParams, 'NavigationArrow'>
 
+export type NavigationQrScanScreen = StackNavigationProp<StackParams, 'QrScanScreen'>
+export type NavigationQrScanScreenRouteProp = RouteProp<StackParams, 'QrScanScreen'>
+
+export type QrScanScreenProps = {
+    navigation: NavigationQrScanScreen,
+    route: NavigationQrScanScreenRouteProp
+}
+
 export interface NavigationArrowProps {
     navigation: NavigationArrowNavigationProp
     route: NavigationArrowRouteProp
