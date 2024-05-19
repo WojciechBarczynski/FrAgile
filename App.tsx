@@ -8,10 +8,10 @@ import QrScanner from "./src/screens/QrScan";
 import CreditsScreen from "./src/screens/CreditsScreen";
 import EndScreen from "./src/screens/EndScreen";
 import List from "./src/screens/List";
+import { hardcoded_json } from "./src/screens/NavigationArrow";
 import { QrScanScreen } from "./src/screens/QrScanScreen";
 import QuizScreen from "./src/screens/QuizScreen";
 import QuizResultScreen from "./src/screens/QuizResultScreen";
-
 
 export const Stack = createNativeStackNavigator<StackParams>();
 
@@ -64,42 +64,3 @@ function App() {
 }
 
 export default App;
-
-
-const hardcoded_json = {
-  stands: {
-    0: {
-      position: {
-        x: 1.0,
-        y: 1.0
-      },
-      angle: 3.14 * 1,
-      floor: 0,
-      room: "dupa",
-      name: "dupa",
-      description: "dupa"
-    },
-    1: {
-      position: {
-        x: 2.0,
-        y: 2.0
-      },
-      angle: 0.0,
-      floor: 0,
-      room: "dupa",
-      name: "dupa",
-      description: "dupa"
-    },
-    2: {
-      position: {
-        x: 5.0,
-        y: 6.0
-      },
-      angle: 0.0,
-      floor: 0,
-      room: "dupa",
-      name: "dupa",
-      description: "dupa"
-    },
-  }
-}
