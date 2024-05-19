@@ -27,7 +27,6 @@ export default function QrScan({navigation, route}: QrScannerProps) {
         next_stand_id: route.params.stands_list[0],
       });
     }
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 
   if (hasPermission === null) {
