@@ -15,13 +15,6 @@ import { StackNavigationProp } from "@react-navigation/stack";
 const NUM_ITEMS = stands.stands.length
 const COLOR = 'rgb(0, 153, 255)'
 
-// unused for now
-function getColor(i: number) {
-    const multiplier = 255 / (NUM_ITEMS - 1);
-    const colorVal = i * multiplier;
-    return `rgb(${colorVal}, ${Math.abs(128 - colorVal)}, ${255 - colorVal})`;
-}
-
 type Item = {
     key: string;
     label: string;
@@ -30,7 +23,6 @@ type Item = {
 };
 
 const initialData: Item[] = [...Array(NUM_ITEMS)].map((d, index) => {
-    // const backgroundColor = getColor(index);
     const stand = stands.stands.at(index);
     return {
         key: `item-${index}`,
@@ -78,10 +70,10 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
     }
 
     return (
-        <GestureHandlerRootView style={{ marginTop: 25, flex: 1 }}>
+        <GestureHandlerRootView style={{flex: 1, backgroundColor: 'skyblue' }}>
             <NestableScrollContainer>
-                <Text style={{ fontSize: 32 }}>
-                    Przeciągnij elementy, aby ustawić swoje preferencje oraz odhacz stoiska, które cię nie interesują.
+                <Text style={{ margin:10, fontSize: 28, textAlign: 'center' }}>
+                    Zaznacz interesujące Cię stanowiska i ułóż je w kolejności w jakiej chcesz je odwiedzić.
                 </Text>
                 <NestableDraggableFlatList
                     data={data}
