@@ -10,7 +10,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import stands from "../../config/stands.json";
 import {Checkbox} from "expo-checkbox";
 
-const NUM_ITEMS = stands.stands.length
+const NUM_ITEMS = Object.keys(stands.stands).length
 const COLOR = 'rgb(0, 153, 255)'
 
 // unused for now
@@ -29,10 +29,11 @@ type Item = {
 
 const initialData: Item[] = [...Array(NUM_ITEMS)].map((d, index) => {
     // const backgroundColor = getColor(index);
-    const stand = stands.stands.at(index);
+    // @ts-ignore
+    const stand = stands.stands[index.toString()];
     return {
         key: `item-${index}`,
-        label: `${stand!.id}. ${stand!.title} - ${stand!.text}`, //undefined
+        label: `${stand["room"]} ${stand["text"]} - ${stand["description"]}`, //undefined
         backgroundColor: COLOR,
         id: index,
     };

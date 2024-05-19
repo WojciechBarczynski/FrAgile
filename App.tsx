@@ -15,10 +15,10 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="StartScreen">
+        <Stack.Screen name="List" component={List} />
         <Stack.Screen name="NavigationArrow" component={NavigationArrow} initialParams={{ current_stand_id: 0, next_stand_id: 1, data: hardcoded_json }} />
         <Stack.Screen name="MainScreen" component={MainScreen} />
         <Stack.Screen name="QrScanScreen" component={QrScanScreen} />
-        <Stack.Screen name="List" component={List} />
         <Stack.Screen name="QrScanner" component={QrScanner} />
       </Stack.Navigator>
     </NavigationContainer>
