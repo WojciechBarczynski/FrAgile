@@ -1,7 +1,7 @@
-import {PrimaryButton, Title} from "components/atoms";
-import {paddingSize} from "properties/styles/vars";
+import { PrimaryButton, Title } from "components/atoms";
+import { paddingSize } from "properties/styles/vars";
 import React from "react";
-import {Image, SafeAreaView, StyleSheet, View} from "react-native";
+import { Image, SafeAreaView, StyleSheet, View } from "react-native";
 
 
 export const mainStyle = StyleSheet.create({
@@ -21,7 +21,10 @@ export const mainStyle = StyleSheet.create({
   },
 });
 
+
 const MainScreen = ({ navigation }: { navigation: any }) => {
+
+  // Navigation functions
   const navigateToQrScanScreen = () => {
     navigation.navigate("QrScanScreen");
   };
@@ -30,6 +33,16 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
     navigation.navigate("List");
   };
 
+  const navigateToMapScreen = () => {
+    navigation.navigate("MapScreen");
+  };
+
+  const navigateToCreditsScreen = () => {
+    navigation.navigate("CreditsScreen");
+  };
+
+
+  // Layout
   return (
     <View style={[{ flex: 1 }]}>
       <SafeAreaView style={mainStyle.container}>
@@ -39,18 +52,31 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
         />
         <Title title="FrAgile" />
         <View style={mainStyle.container}>
+
           <PrimaryButton
-            title={"Skanuj kod QR"}
+            title={"Scan QR Code"}
             handleOnClick={navigateToQrScanScreen}
           ></PrimaryButton>
+
           <PrimaryButton
-              title={"Wybierz stanowiska"}
-              handleOnClick={navigateToListScreen}
+            title={"Show list"}
+            handleOnClick={navigateToListScreen}
+          ></PrimaryButton>
+
+          <PrimaryButton
+            title={"Show map"}
+            handleOnClick={navigateToMapScreen}
+          ></PrimaryButton>
+
+          <PrimaryButton
+            title={"Credits"}
+            handleOnClick={navigateToCreditsScreen}
           ></PrimaryButton>
         </View>
       </SafeAreaView>
     </View>
   );
 };
+
 
 export default MainScreen;
