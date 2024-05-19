@@ -1,5 +1,5 @@
-import { PrimaryButton, Title } from "components/atoms";
-import { paddingSize } from "properties/styles/vars";
+import { PrimaryButton, Title } from "../components/atoms";
+import { paddingSize } from "../properties/styles/vars";
 import React from "react";
 import { Image, SafeAreaView, StyleSheet, View } from "react-native";
 

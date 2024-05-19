@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
+import data from "../questions/questions.json";
+import Checkbox from 'expo-checkbox'
+import { QuizResult, QuizScreenProps } from "../types";
 import { StyleSheet, Text, SafeAreaView, View, TouchableOpacity, ScrollView } from 'react-native';
-import Checkbox from 'expo-checkbox';
-import { PrimaryButton } from 'components/atoms';
-import data from '../questions/questions.json';
+import { PrimaryButton } from "../components/atoms";
 
-const QuizScreen = ({route, navigation }: {route: any, navigation: any }) => {
+export function QuizScreen({navigation, route }: QuizScreenProps) {
+  console.log("Is in quiz screen");
+
   const [isChecked1, setChecked1] = useState(false);
   const [isChecked2, setChecked2] = useState(false);
   const [isChecked3, setChecked3] = useState(false);
   const [isChecked4, setChecked4] = useState(false);
 
-  const question = data[route.params.questionId] ;
-
-  const handleSubmit = () => {
-    navigation.navigate('QuizResultScreen', {
-      result:
-        isChecked1 === question.options[0].correct &&
-        isChecked2 === question.options[1].correct &&
-        isChecked3 === question.options[2].correct &&
-        isChecked4 === question.options[3].correct,
-    });
-  };
+  const question = data[route.params.stands_list[0]] ;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -44,8 +37,26 @@ const QuizScreen = ({route, navigation }: {route: any, navigation: any }) => {
               <Checkbox value={isChecked4} onValueChange={setChecked4} />
               <Text style={styles.optionText}>{question.options[3].content}</Text>
             </View>
+            <PrimaryButton
+              title="Submit"
+              handleOnClick={() => {
+                const isCorrect = isChecked1 === (question.options[0].correct)
+                  && (isChecked2 === question.options[1].correct)
+                  && (isChecked3 === question.options[2].correct)
+                  && (isChecked4 === question.options[3].correct);
+                
+                const quizResult: QuizResult = {
+                  isCorrect,
+                  commonArgs: route.params,
+                };
+
+                navigation.navigate(
+                  "QuizResultScreen",
+                  quizResult
+                );
+              }}
+            />
           </View>
-          <PrimaryButton title="Submit" handleOnClick={handleSubmit} />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -97,6 +108,3 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 });
-
-      
-export default QuizScreen;
