@@ -22,7 +22,6 @@ export const mainStyle = StyleSheet.create({
 });
 
 const MainScreen = ({ navigation }: { navigation: any }) => {
-  
   const navigateToQrScanScreen = () => {
     navigation.navigate("QrScanScreen");
   };
