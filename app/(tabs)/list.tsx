@@ -1,41 +1,50 @@
-import React, { useState } from "react";
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import React, {useState} from "react";
+import {Text, StyleSheet, TouchableOpacity, Button} from "react-native";
 import DraggableFlatList, { RenderItemParams, ScaleDecorator } from "react-native-draggable-flatlist";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import stands from "./stands.json";
 import {Checkbox} from "expo-checkbox";
 import {ThemedText} from "@/components/ThemedText";
+import {NavigationContainer} from "@react-navigation/native";
+import { Stack } from "expo-router";
 
 const NUM_ITEMS = stands.stands.length
+const COLOR = 'rgb(0, 153, 255)'
 
+// unused for now
 function getColor(i: number) {
-    // const multiplier = 255 / (NUM_ITEMS - 1);
-    // const colorVal = i * multiplier;
-    // return `rgb(${colorVal}, ${Math.abs(128 - colorVal)}, ${255 - colorVal})`;
-    return 'rgb(0, 153, 255)a'
+    const multiplier = 255 / (NUM_ITEMS - 1);
+    const colorVal = i * multiplier;
+    return `rgb(${colorVal}, ${Math.abs(128 - colorVal)}, ${255 - colorVal})`;
 }
 
 type Item = {
     key: string;
     label: string;
     backgroundColor: string;
+    id: number;
 };
 
 const initialData: Item[] = [...Array(NUM_ITEMS)].map((d, index) => {
-    const backgroundColor = getColor(index);
+    // const backgroundColor = getColor(index);
     const stand = stands.stands.at(index);
     return {
         key: `item-${index}`,
         label: `${stand!.id}. ${stand!.title} - ${stand!.text}`, //undefined
-        backgroundColor,
+        backgroundColor: COLOR,
+        id: index,
     };
 });
 
 export default function List() {
     const [data, setData] = useState(initialData);
+    const [chosenList, setChosenList] = useState(new Array(NUM_ITEMS).fill(true));
+    const handleOnChange = (position: number) => {
+        const updatedList = chosenList.map((item, index) => index === position ? !item : item)
+        setChosenList(updatedList)
+    }
 
-    const renderItem = ({ item, drag, isActive }: RenderItemParams<Item>) => {
-        const [isChecked, setChecked] = useState(true);
+    const renderItem = ({ item, drag, isActive}: RenderItemParams<Item>) => {
         return (
             <ScaleDecorator>
                 <TouchableOpacity
@@ -43,13 +52,13 @@ export default function List() {
                     disabled={isActive}
                     style={[
                         styles.rowItem,
-                        { backgroundColor: isActive ? "red" : item.backgroundColor },
+                        { backgroundColor: isActive ? "red" : !chosenList.at(item.id) ? "gray" : item.backgroundColor},
                     ]}
                 >
                     <Checkbox
                         style={{alignSelf: "center"}}
-                        value={isChecked}
-                        onValueChange={setChecked}
+                        value={chosenList.at(item.id)}
+                        onValueChange={() => handleOnChange(item.id)}
                     />
                     <Text style={styles.text}>
                         {item.label}
@@ -60,19 +69,24 @@ export default function List() {
         );
     };
 
+    const formatData = () => {
+        console.log(data.filter((item, index) => chosenList[index]))
+        return data.filter((item, index) => chosenList[index])
+    }
+
     return (
-        <GestureHandlerRootView style={{ marginTop: 25, flex: 1 }}>
+        <GestureHandlerRootView style={{marginTop: 25, flex: 1}}>
             <ThemedText type="title">
                 Drag items to set your preferences and check out stands you're not interested in.
             </ThemedText>
             <DraggableFlatList
                 data={data}
-                onDragEnd={({ data }) => setData(data)}
+                onDragEnd={({data}) => {setData(data); console.log(data); console.log(chosenList);}}
                 keyExtractor={(item) => item.key}
                 renderItem={renderItem}
             />
+            <Button title={"Submit"}  onPress={formatData} color={"#0059b3"}/>
         </GestureHandlerRootView>
-
     );
 }
 
@@ -81,7 +95,7 @@ const styles = StyleSheet.create({
         height: "auto",
         width: "auto",
         padding: 15,
-        flexDirection:"row"
+        flexDirection: "row"
     },
     text: {
         color: "white",
