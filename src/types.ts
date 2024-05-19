@@ -63,6 +63,9 @@ export type NavigationQuizScreenRouteProp = RouteProp<StackParams, 'QuizScreen'>
 export type NavigationQuizResultScreen = StackNavigationProp<StackParams, 'QuizResultScreen'>
 export type NavigationQuizResultScreenRouteProp = RouteProp<StackParams, 'QuizResultScreen'>
 
+export type NavigationQrScannerScreen = StackNavigationProp<StackParams, 'QrScanner'>
+export type NavigationQrScannerScreenRouteProp = RouteProp<StackParams, 'QrScanner'>
+
 export interface NavigationArrowProps {
     navigation: NavigationArrowNavigationProp
     route: NavigationArrowRouteProp
@@ -81,4 +84,9 @@ export type QuizScreenProps = {
 export type QuizResultScreenProps = {
     navigation: NavigationQuizResultScreen,
     route: NavigationQuizResultScreenRouteProp
+}
+
+export type QrScannerProps = {
+    navigation: NavigationQrScannerScreen,
+    route: NavigationQrScannerScreenRouteProp
 }

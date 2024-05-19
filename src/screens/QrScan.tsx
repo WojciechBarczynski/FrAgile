@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { CameraView, Camera } from "expo-camera";
+import { QrScannerProps } from "../types";
 
-export default function QrScan() {
+export default function QrScan({navigation, route}: QrScannerProps) {
   const [hasPermission, setHasPermission]: [boolean | null, any] = useState(null);
   const [scanned, setScanned] = useState(false);
 
@@ -17,6 +18,15 @@ export default function QrScan() {
 
   const handleBarCodeScanned = ({ type, data }: { type: string, data: any }) => {
     setScanned(true);
+    if (data === route.params.stands_list[0].toString()) {
+      navigation.navigate("QuizScreen", route.params);
+    } else {
+      navigation.navigate("NavigationArrow", {
+        common_args: route.params,
+        current_stand_id: parseInt(data),
+        next_stand_id: route.params.stands_list[0],
+      });
+    }
     alert(`Bar code with type ${type} and data ${data} has been scanned!`);
   };
 
