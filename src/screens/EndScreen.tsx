@@ -1,9 +1,14 @@
 import { useState } from "react";
 import { Text, View, Image } from "react-native";
+import { PrimaryButton } from "components/atoms";
 
 
 const EndScreen = ({ navigation }: { navigation: any }) => {
     const [inputText, setText] = useState('');
+
+    const navigateBackToMainScreen = () => {
+        navigation.navigate("MainScreen");
+    };
   
     return (
         <View style={{flex:1, margin: 10, justifyContent: 'center', alignItems: 'center', gap: 10, backgroundColor: 'skyblue'}}>
@@ -20,6 +25,10 @@ const EndScreen = ({ navigation }: { navigation: any }) => {
                 alignSelf: "center"}}
                 source={require("../../assets/happy-emoji.png")}
             />
+            <PrimaryButton
+                title={"Powrót do startu"}
+                handleOnClick={navigateBackToMainScreen}
+            ></PrimaryButton>
         </View>
     );
   };
