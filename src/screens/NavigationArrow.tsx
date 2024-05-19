@@ -5,7 +5,7 @@ import { NavigationArrowProps, Position } from './src/types';
 
 
 export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
-    const image = require('@/assets/images/xp.png')
+    const image = require('../../assets/images/xp.png')
 
     const data = route.params.data
     const current_stand_id = route.params.current_stand_id

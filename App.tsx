@@ -12,8 +12,8 @@ export const Stack = createNativeStackNavigator<StackParams>();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MainScreen">
-        <Stack.Screen name="NavigationArrow" component={NavigationArrow} />
+      <Stack.Navigator>
+        <Stack.Screen name="NavigationArrow" component={NavigationArrow} initialParams={{ current_stand_id: 0, next_stand_id: 1, data: hardcoded_json }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
