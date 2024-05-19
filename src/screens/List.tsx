@@ -67,7 +67,7 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
 
     const submit = () => {
         // @ts-ignore
-        stands.stands[2137] = staircase
+        stands.stands[2137] = stands.staircase
         const commonArgs: CommonArgs = {
             data: stands,
             stands_list: data.filter((_item, index) => chosenList[index]).map(item => item.id),
@@ -92,19 +92,6 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
             </NestableScrollContainer>
         </GestureHandlerRootView>
     );
-}
-
-const staircase =
-{
-    position: {
-        x: 5,
-        y: 5
-    },
-    angle: 0,
-    floor: 0,
-    room: "klatka",
-    name: "klatka",
-    description: "schody"
 }
 
 const styles = StyleSheet.create({

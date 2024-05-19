@@ -49,7 +49,7 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
     );
 }
 
-function getArrowAngle(current_stand_position: Position, current_stand_angle: number, next_stand_position: Position) {
+export function getArrowAngle(current_stand_position: Position, current_stand_angle: number, next_stand_position: Position) {
     const current_stand_unit_vector = {
         x: Math.cos(current_stand_angle),
         y: Math.sin(current_stand_angle)
