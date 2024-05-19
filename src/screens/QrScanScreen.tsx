@@ -2,6 +2,7 @@ import { PrimaryButton, Title } from "components/atoms";
 import { useState } from "react";
 import { TextInput, View } from "react-native";
 
+
 const rooms = [{
   id: 1,
   name: 'Room 1',
@@ -12,6 +13,7 @@ const rooms = [{
   id: 3,
   name: 'Room 3',
 }];
+
 
 const QrScanScreen = ({ navigation }: { navigation: any }) => {
   const [inputText, setText] = useState('');
@@ -39,6 +41,8 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
         handleOnClick={() => {
           if (rooms.find(room => room.id.toString() === inputText)) {
             console.log('Room found');
+          } else if (inputText === 'end') {
+            navigation.navigate("EndScreen");
           } else {
             console.log('Room not found');
           }
@@ -47,5 +51,6 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
     </View>
   );
 };
+
 
 export default QrScanScreen;

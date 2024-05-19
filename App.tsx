@@ -20,7 +20,8 @@ function App() {
         <Stack.Screen 
           name="NavigationArrow" 
           component={NavigationArrow} 
-          initialParams={{ current_stand_id: 0, next_stand_id: 1, data: hardcoded_json }} />
+          initialParams={{ current_stand_id: 0, next_stand_id: 1, data: hardcoded_json }}
+          ptions ={{title:"Navigation arrow", headerTitleAlign: 'center'}} />
         
         <Stack.Screen
           name="MainScreen"
@@ -34,7 +35,8 @@ function App() {
         
         <Stack.Screen
           name="List"
-          component={List} />
+          component={List}
+          ptions ={{title:"List", headerTitleAlign: 'center'}} />
 
         <Stack.Screen
           name="QrScanner"
@@ -48,7 +50,8 @@ function App() {
         
         <Stack.Screen 
           name="EndScreen"
-          component={EndScreen} />
+          component={EndScreen}
+          ptions ={{title:"End", headerTitleAlign: 'center'}} />
       </Stack.Navigator>
     </NavigationContainer>
   );

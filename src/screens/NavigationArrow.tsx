@@ -1,4 +1,3 @@
-
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { NavigationArrowProps, Position } from '../types';
@@ -31,6 +30,7 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
     );
 }
 
+
 function getArrowAngle(current_stand_position: Position, current_stand_angle: number, next_stand_position: Position) {
     const current_stand_unit_vector = {
         x: Math.cos(current_stand_angle),
@@ -48,6 +48,7 @@ function getArrowAngle(current_stand_position: Position, current_stand_angle: nu
 
     return `${angle_between_vectors * 180 / Math.PI}deg`
 }
+
 
 const styles = StyleSheet.create({
     container: {

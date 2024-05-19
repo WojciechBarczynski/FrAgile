@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { CameraView, Camera } from "expo-camera";
 
+
 export default function QrScan() {
   const [hasPermission, setHasPermission]: [boolean | null, any] = useState(null);
   const [scanned, setScanned] = useState(false);
@@ -42,6 +43,7 @@ export default function QrScan() {
     </View>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
