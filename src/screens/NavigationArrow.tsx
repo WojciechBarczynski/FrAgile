@@ -70,7 +70,7 @@ export function getArrowAngle(current_stand_position: Position, current_stand_an
         Math.atan2(vector_between_stands.y, vector_between_stands.x) -
         Math.atan2(current_stand_unit_vector.y, current_stand_unit_vector.x)
 
-    return `${angle_between_vectors * 180 / Math.PI}deg`
+    return `${-angle_between_vectors * 180 / Math.PI}deg`
 }
 
 const styles = StyleSheet.create({

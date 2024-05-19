@@ -1,9 +1,9 @@
-import {View, Text, TouchableOpacity, StyleSheet} from "react-native";
-import React  from 'react';
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React from 'react';
 import { NavigationArrowArgs, QuizResultScreenProps } from "../types";
 
 
-export function QuizResultScreen({navigation, route }: QuizResultScreenProps) {
+export function QuizResultScreen({ navigation, route }: QuizResultScreenProps) {
     const handleOnClick = () => {
         if (route.params.commonArgs.stands_list.length > 1) {
             route.params.commonArgs.stands_list.shift();
@@ -20,15 +20,15 @@ export function QuizResultScreen({navigation, route }: QuizResultScreenProps) {
     }
 
     let msg = "";
-    if(route.params.isCorrect) msg = "Correct";
+    if (route.params.isCorrect) msg = "Correct";
     else msg = "Incorrect";
 
     return (
         <View style={styles.container}>
             <View style={styles.card}>
                 <Text style={[styles.message]}>{msg}</Text>
-                <TouchableOpacity 
-                    style={styles.button} 
+                <TouchableOpacity
+                    style={styles.button}
                     onPress={handleOnClick}
                 >
                     <Text style={styles.buttonText}>Next task</Text>
