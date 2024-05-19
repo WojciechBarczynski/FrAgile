@@ -33,14 +33,14 @@ const hardcoded_json = {
         x: 1.0,
         y: 1.0
       },
-      angle: 0.0,
+      angle: 3.14 * 1,
     },
     1: {
       position: {
         x: 2.0,
-        y: 4.0
+        y: 2.0
       },
-      angle: 120.0,
+      angle: 0.0,
     },
     2: {
       position: {

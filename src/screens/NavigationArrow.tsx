@@ -15,10 +15,6 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
     const current_stand_angle = data.tags[current_stand_id].angle
     const next_stand_position = data.tags[next_stand_id].position
 
-    // const current_stand_position = { x: 0, y: 0 }
-    // const current_stand_angle = Math.PI * 1 / 4
-    // const next_stand_position = { x: 1, y: 1 }
-
     const rotationAngle = getArrowAngle(current_stand_position, current_stand_angle, next_stand_position)
 
     return (
@@ -36,7 +32,6 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
 }
 
 function getArrowAngle(current_stand_position: Position, current_stand_angle: number, next_stand_position: Position) {
-
     const current_stand_unit_vector = {
         x: Math.cos(current_stand_angle),
         y: Math.sin(current_stand_angle)
@@ -62,8 +57,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     image: {
-        width: 400,
-        height: 400,
+        width: 300,
+        height: 300,
     },
     buttonContainer: {
         width: '100%',
