@@ -42,7 +42,7 @@ export function QuizResultScreen({navigation, route }: QuizResultScreenProps) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#E8F4F8',
+        backgroundColor: 'skyblue',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 16,
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 20,
+        color: "#333"
     },
     correct: {
         color: 'green',
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         color: '#FFF',
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: 'bold',
     },
 });

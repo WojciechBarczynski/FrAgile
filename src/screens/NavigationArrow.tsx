@@ -40,8 +40,6 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
 
     return (
         <View style={styles.container}>
-            <Text>Current stand is: {current_stand_name} (id: {current_stand_id})</Text>
-            <Text>Next stand is: {next_stand_name} (id: {next_stand_id})</Text>
             <Text style={styles.topText}>{info_text}</Text>
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <Image source={image} style={[styles.image, { transform: [{ rotate: rotationAngle }] }]} />
@@ -76,13 +74,15 @@ function getArrowAngle(current_stand_position: Position, current_stand_angle: nu
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'red',
+        backgroundColor: 'skyblue',
         alignItems: 'center',
         justifyContent: 'center',
     },
     topText: {
+        textAlign: 'center',
+        margin: 10,
         fontSize: 34,
-        color: '#fff',
+        fontWeight: "bold",
         position: 'absolute',
         top: 0,
     },
@@ -100,12 +100,14 @@ const styles = StyleSheet.create({
     button: {
         width: 200,
         height: 50,
-        backgroundColor: '#fff',
+        backgroundColor: 'orange',
         justifyContent: 'center',
         alignItems: 'center',
+        borderRadius: 10,
+        margin: 10
     },
     buttonText: {
-        fontSize: 20,
-        color: '#000',
+        fontSize: 30,
+        fontWeight: 500
     },
 })
