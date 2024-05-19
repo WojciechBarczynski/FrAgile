@@ -7,7 +7,7 @@ import { NavigationArrowProps, Position } from '../types';
 export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
     const image = require('../../assets/images/arrow.png')
 
-    const data = route.params.data
+    const data = route.params.common_args.data
     const current_stand_id = route.params.current_stand_id
     const next_stand_id = route.params.next_stand_id
 
@@ -23,7 +23,7 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
                 <Image source={image} style={[styles.image, { transform: [{ rotate: rotationAngle }] }]} />
             </View>
             <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('QrScanScreen')}>
+                <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('QrScanScreen', route.params.common_args)}>
                     <Text style={styles.buttonText}>Zeskanuj Kod QR</Text>
                 </TouchableOpacity>
             </View>

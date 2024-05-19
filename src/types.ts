@@ -4,7 +4,12 @@ import { RouteProp } from "@react-navigation/native"
 export type NavigationArrowArgs = {
     current_stand_id: number,
     next_stand_id: number,
+    common_args: CommonArgs
+}
+
+export type CommonArgs = {
     data: Data
+    stands_list: StandsList
 }
 
 export type Position = {
@@ -21,6 +26,8 @@ export type StandInfo = {
     description: string
 }
 
+export type StandsList = number[]
+
 export type Data = {
     stands: {
         [key: number]: StandInfo
@@ -28,13 +35,13 @@ export type Data = {
 }
 
 export type StackParams = {
-    NavigationArrow: NavigationArrowArgs,
     MainScreen: undefined,
-    StartScreen: undefined,
-    QrScanScreen: undefined,
-    QrScanner: undefined,
     List: undefined,
-    EndScreen: undefined
+    NavigationArrow: NavigationArrowArgs,
+    QrScanScreen: CommonArgs,
+    QrScanner: CommonArgs,
+    EndScreen: undefined,
+    CreditsScreen: undefined
 }
 
 export type NavigationArrowNavigationProp = StackNavigationProp<StackParams, 'NavigationArrow'>
