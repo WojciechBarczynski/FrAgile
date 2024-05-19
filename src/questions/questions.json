@@ -1,25 +1,42 @@
-[
+[ 
     {
         "Question": "Which of theses languages were named after a mathematician",
         "options": [
             {
                 "content": "Lua",
-                "key": "A",
                 "correct": false
             },
             {
                 "content": "Haskell",
-                "key": "B",
                 "correct": true
             },
             {
                 "content": "Cobol",
-                "key": "C",
                 "correct": false
             },
             {
                 "content": "Ada",
-                "key": "D",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "Question": "What is dean's favourite language",
+        "options": [
+            {
+                "content": "Pascal",
+                "correct": false
+            },
+            {
+                "content": "Haskell",
+                "correct": false
+            },
+            {
+                "content": "Python",
+                "correct": false
+            },
+            {
+                "content": "Icon",
                 "correct": true
             }
         ]
