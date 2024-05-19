@@ -87,7 +87,7 @@ export default function List({ navigation: navigation }: { navigation: StackNavi
                     keyExtractor={(item) => item.key}
                     renderItem={renderItem}
                 />
-                <Button title={"Submit"} onPress={submit} color={"#0059b3"} />
+                <Button title={"Prześlij"} onPress={submit} color={"#0059b3"} />
             {/*</NestableScrollContainer>*/}
         </GestureHandlerRootView>
     );

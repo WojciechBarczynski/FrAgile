@@ -10,25 +10,25 @@ export function QrScanScreen({ navigation, route }: QrScanScreenProps) {
   return (
     <View style={qrScanScreenStyle.container}>
       <PrimaryButton
-        title="Open QR scanner"
+        title="Otwórz skaner QR"
         handleOnClick={() => {
           navigation.navigate("QrScanner", route.params);
         }}
       />
 
       <Text style={qrScanScreenStyle.text}>
-        OR
+        LUB
       </Text>
 
       <TextInput
         style={qrScanScreenStyle.text_input}
-        placeholder="Type station ID here!"
+        placeholder="Wprowadź ID stacji!"
         onChangeText={newText => setText(newText)}
         defaultValue={inputText}
       />
 
       <PrimaryButton
-        title="Submit QR code number"
+        title="Prześlij ID stacji"
         handleOnClick={() => {
           if (route.params.data.stands.hasOwnProperty(inputText)) {
             if (route.params.stands_list[0].toString() === inputText) {
@@ -42,7 +42,7 @@ export function QrScanScreen({ navigation, route }: QrScanScreenProps) {
               });
             }
           } else {
-            alert(`Such station doesn't exist!`);
+            console.log(`Such station doesn't exist!`);
           }
         }}
       />

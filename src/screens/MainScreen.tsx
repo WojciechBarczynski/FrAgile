@@ -29,7 +29,7 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
             ></PrimaryButton>
 
             <PrimaryButton
-              title={"Credits"}
+              title={"Autorzy"}
               handleOnClick={navigateToCreditsScreen}
             ></PrimaryButton>
           </View>

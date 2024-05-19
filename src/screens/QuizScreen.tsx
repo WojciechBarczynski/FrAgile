@@ -38,7 +38,7 @@ export function QuizScreen({navigation, route }: QuizScreenProps) {
               <Text style={styles.optionText}>{question.options[3].content}</Text>
             </View>
             <PrimaryButton
-              title="Submit"
+              title="Prześlij odpowiedź"
               handleOnClick={() => {
                 const isCorrect = isChecked1 === (question.options[0].correct)
                   && (isChecked2 === question.options[1].correct)
