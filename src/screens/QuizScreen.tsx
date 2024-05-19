@@ -3,14 +3,17 @@ import { PrimaryButton } from "components/atoms";
 import React, { useState } from 'react';
 import data from "../questions/questions.json";
 import Checkbox from 'expo-checkbox'
+import { QuizResult, QuizScreenProps } from "../types";
 
-const QuizScreen = ({route, navigation }: {route: any, navigation: any }) => {
+export function QuizScreen({navigation, route }: QuizScreenProps) {
+  console.log("Is in quiz screen");
+
   const [isChecked1, setChecked1] = useState(false);
   const [isChecked2, setChecked2] = useState(false);
   const [isChecked3, setChecked3] = useState(false);
   const [isChecked4, setChecked4] = useState(false);
 
-  let question = data[route.params.questionId];
+  let question = data[route.params.stands_list[0]];
   return (
     <View
         style={{
@@ -43,14 +46,19 @@ const QuizScreen = ({route, navigation }: {route: any, navigation: any }) => {
             <PrimaryButton
               title="Submit"
               handleOnClick={() => {
+                const isCorrect = isChecked1 === (question.options[0].correct)
+                  && (isChecked2 === question.options[1].correct)
+                  && (isChecked3 === question.options[2].correct)
+                  && (isChecked4 === question.options[3].correct);
+                
+                const quizResult: QuizResult = {
+                  isCorrect,
+                  commonArgs: route.params,
+                };
+
                 navigation.navigate(
                   "QuizResultScreen",
-                  { result: (
-                    (isChecked1 === question.options[0].correct)
-                    && (isChecked2 === question.options[1].correct)
-                    && (isChecked3 === question.options[2].correct)
-                    && (isChecked4 === question.options[3].correct)
-                  )}
+                  quizResult
                 );
               }}
             />
@@ -58,5 +66,3 @@ const QuizScreen = ({route, navigation }: {route: any, navigation: any }) => {
       </View>
   );
 };
-
-export default QuizScreen;
