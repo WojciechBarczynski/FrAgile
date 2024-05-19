@@ -17,7 +17,7 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
   const [inputText, setText] = useState('');
 
   return (
-    <View style={{ flex: 1, padding: 10, justifyContent: 'center', alignItems: 'center'}}>
+    <View style={{ flex: 1, padding: 10, justifyContent: 'center', alignItems: 'center' }}>
       <PrimaryButton
         title="Open QR scanner"
         handleOnClick={() => {
@@ -28,7 +28,7 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
       <Title title={" or "} />
 
       <TextInput
-        style={{height: 40, alignSelf: 'stretch'}}
+        style={{ height: 40, alignSelf: 'stretch' }}
         placeholder="Type station ID here!"
         onChangeText={newText => setText(newText)}
         defaultValue={inputText}

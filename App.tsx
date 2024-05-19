@@ -9,6 +9,7 @@ import QrScanner from "./src/screens/QrScan";
 import CreditsScreen from "./src/screens/CreditsScreen";
 import EndScreen from "./src/screens/EndScreen";
 import List from "./src/screens/List";
+import { hardcoded_json } from "./src/screens/NavigationArrow";
 
 
 export const Stack = createNativeStackNavigator<StackParams>();
@@ -18,14 +19,14 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
+          name="NavigationArrow"
+          component={NavigationArrow}
+          initialParams={{ common_args: { data: hardcoded_json, stands_list: [] }, current_stand_id: 0, next_stand_id: 1 }}
+        />
+        <Stack.Screen
           name="MainScreen"
           component={MainScreen}
           options={{ title: "Start", headerTitleAlign: 'center' }} />
-
-        <Stack.Screen
-          name="NavigationArrow"
-          component={NavigationArrow}
-        />
 
         <Stack.Screen
           name="QrScanScreen"
@@ -55,42 +56,3 @@ function App() {
 }
 
 export default App;
-
-
-const hardcoded_json = {
-  stands: {
-    0: {
-      position: {
-        x: 1.0,
-        y: 1.0
-      },
-      angle: 3.14 * 1,
-      floor: 0,
-      room: "dupa",
-      name: "dupa",
-      description: "dupa"
-    },
-    1: {
-      position: {
-        x: 2.0,
-        y: 2.0
-      },
-      angle: 0.0,
-      floor: 0,
-      room: "dupa",
-      name: "dupa",
-      description: "dupa"
-    },
-    2: {
-      position: {
-        x: 5.0,
-        y: 6.0
-      },
-      angle: 0.0,
-      floor: 0,
-      room: "dupa",
-      name: "dupa",
-      description: "dupa"
-    },
-  }
-}
