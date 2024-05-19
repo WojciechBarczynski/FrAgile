@@ -42,7 +42,7 @@ export function QrScanScreen({ navigation, route }: QrScanScreenProps) {
               });
             }
           } else {
-            console.log(`Such station doesn't exist!`);
+            alert(`Such station doesn't exist!`);
           }
         }}
       />
