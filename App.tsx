@@ -8,10 +8,9 @@ import QrScanner from "./src/screens/QrScan";
 import CreditsScreen from "./src/screens/CreditsScreen";
 import EndScreen from "./src/screens/EndScreen";
 import List from "./src/screens/List";
-import { hardcoded_json } from "./src/screens/NavigationArrow";
 import { QrScanScreen } from "./src/screens/QrScanScreen";
-import QuizScreen from "./src/screens/QuizScreen";
-import QuizResultScreen from "./src/screens/QuizResultScreen";
+import { QuizScreen } from "./src/screens/QuizScreen";
+import { QuizResultScreen } from "./src/screens/QuizResultScreen";
 
 export const Stack = createNativeStackNavigator<StackParams>();
 

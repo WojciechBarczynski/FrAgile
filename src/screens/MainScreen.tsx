@@ -1,7 +1,7 @@
-import { PrimaryButton, Title } from "components/atoms";
-import { paddingSize } from "properties/styles/vars";
+import { PrimaryButton, Title } from "../components/atoms";
+import { paddingSize } from "../properties/styles/vars";
 import React from "react";
-import { Image, SafeAreaView, StyleSheet, View } from "react-native";
+import { Image, SafeAreaView, StyleSheet, View, ScrollView} from "react-native";
 
 
 const MainScreen = ({ navigation }: { navigation: any }) => {
@@ -14,26 +14,28 @@ const MainScreen = ({ navigation }: { navigation: any }) => {
   };
 
   return (
-    <View style={[{ flex: 1 }]}>
-      <SafeAreaView style={mainStyle.container}>
-        <Title title="⚠️💀 FrAgile 💀⚠️" />
-        <Image
-          style={mainStyle.logo}
-          source={require("../../assets/logo.png")}
-        />
-        <View style={mainStyle.container}>
-          <PrimaryButton
-            title={"Wybierz stanowiska"}
-            handleOnClick={navigateToListScreen}
-          ></PrimaryButton>
+    <ScrollView>
+      <View style={[{ flex: 1 }]}>
+        <SafeAreaView style={mainStyle.container}>
+          <Title title="⚠️💀 FrAgile 💀⚠️" />
+          <Image
+            style={mainStyle.logo}
+            source={require("../../assets/logo.png")}
+          />
+          <View style={mainStyle.container}>
+            <PrimaryButton
+              title={"Wybierz stanowiska"}
+              handleOnClick={navigateToListScreen}
+            ></PrimaryButton>
 
-          <PrimaryButton
-            title={"Credits"}
-            handleOnClick={navigateToCreditsScreen}
-          ></PrimaryButton>
-        </View>
-      </SafeAreaView>
-    </View>
+            <PrimaryButton
+              title={"Credits"}
+              handleOnClick={navigateToCreditsScreen}
+            ></PrimaryButton>
+          </View>
+        </SafeAreaView>
+      </View>
+    </ScrollView>
   );
 };
 

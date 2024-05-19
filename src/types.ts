@@ -34,6 +34,11 @@ export type Data = {
     }
 }
 
+export type QuizResult = {
+    isCorrect: boolean,
+    commonArgs: CommonArgs
+}
+
 export type StackParams = {
     MainScreen: undefined,
     List: undefined,
@@ -43,7 +48,7 @@ export type StackParams = {
     EndScreen: undefined,
     CreditsScreen: undefined
     QuizScreen: CommonArgs,
-    QuizResultScreen: CommonArgs
+    QuizResultScreen: QuizResult
 }
 
 export type NavigationArrowNavigationProp = StackNavigationProp<StackParams, 'NavigationArrow'>
@@ -52,12 +57,28 @@ export type NavigationArrowRouteProp = RouteProp<StackParams, 'NavigationArrow'>
 export type NavigationQrScanScreen = StackNavigationProp<StackParams, 'QrScanScreen'>
 export type NavigationQrScanScreenRouteProp = RouteProp<StackParams, 'QrScanScreen'>
 
+export type NavigationQuizScreen = StackNavigationProp<StackParams, 'QuizScreen'>
+export type NavigationQuizScreenRouteProp = RouteProp<StackParams, 'QuizScreen'>
+
+export type NavigationQuizResultScreen = StackNavigationProp<StackParams, 'QuizResultScreen'>
+export type NavigationQuizResultScreenRouteProp = RouteProp<StackParams, 'QuizResultScreen'>
+
+export interface NavigationArrowProps {
+    navigation: NavigationArrowNavigationProp
+    route: NavigationArrowRouteProp
+}
+
 export type QrScanScreenProps = {
     navigation: NavigationQrScanScreen,
     route: NavigationQrScanScreenRouteProp
 }
 
-export interface NavigationArrowProps {
-    navigation: NavigationArrowNavigationProp
-    route: NavigationArrowRouteProp
+export type QuizScreenProps = {
+    navigation: NavigationQuizScreen,
+    route: NavigationQuizScreenRouteProp
+}
+
+export type QuizResultScreenProps = {
+    navigation: NavigationQuizResultScreen,
+    route: NavigationQuizResultScreenRouteProp
 }

@@ -1,10 +1,10 @@
 import React from "react";
 import { Pressable, Text } from "react-native";
-import primaryColors from "properties/styles/colors";
-import { ButtonProps } from "properties/types/ButtonProps";
-import { buttonStyle } from "properties/styles/buttonStyle";
+import primaryColors from "../../properties/styles/colors";
+import { ButtonProps } from "../../properties/types/ButtonProps";
+import { buttonStyle } from "../../properties/styles/buttonStyle";
 
-const PrimaryButton: React.FC<ButtonProps> = (props: ButtonProps) => {
+export const PrimaryButton: React.FC<ButtonProps> = (props: ButtonProps) => {
   const { handleOnClick, title, inactive } = props;
 
   return (

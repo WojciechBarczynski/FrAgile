@@ -6,10 +6,10 @@ const CreditsScreen = ({ navigation }: { navigation: any }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Authors{"\n"}</Text>
       <View style={styles.subContainer}>
-        <Text style={styles.text}>Adam "Tumu(L)ec" Naumiec</Text>
+        <Text style={styles.text}>Adam "TumuⓁec" Naumiec</Text>
         <Text style={styles.text}>Michał "DeNiro" Nożkiewicz</Text>
         <Text style={styles.text}>Wojciech "Tarczyński" Barczyński</Text>
-        <Text style={styles.text}>Paweł "Łomża" Lamża</Text>
+        <Text style={styles.text}>Paweł "Liżma" Lamża</Text>
         <Text style={styles.text}>Jakub "Śruba" Pryc</Text>
         <Text style={styles.text}>Weronika "Wero" Klatka</Text>
       </View>
