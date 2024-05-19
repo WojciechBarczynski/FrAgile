@@ -1,47 +1,5 @@
 [
     {
-        "Question": "Który z tych języków programowania są nazwane po znanych matematykach?",
-        "options": [
-            {
-                "content": "Lua",
-                "correct": false
-            },
-            {
-                "content": "Haskell",
-                "correct": true
-            },
-            {
-                "content": "Cobol",
-                "correct": false
-            },
-            {
-                "content": "Ada",
-                "correct": true
-            }
-        ]
-    },
-    {
-        "Question": "Jaki jest ulubiony język programowania Dziekana?",
-        "options": [
-            {
-                "content": "Pascal",
-                "correct": false
-            },
-            {
-                "content": "Holy C",
-                "correct": false
-            },
-            {
-                "content": "Python",
-                "correct": false
-            },
-            {
-                "content": "Icon",
-                "correct": true
-            }
-        ]
-    },
-    {
         "Question": "Kto złamał enigmę",
         "options": [
             {
@@ -101,6 +59,48 @@
             {
                 "content": "Heinrich Himmler",
                 "correct": false
+            }
+        ]
+    },
+    {
+        "Question": "Który z tych języków programowania są nazwane po znanych matematykach?",
+        "options": [
+            {
+                "content": "Lua",
+                "correct": false
+            },
+            {
+                "content": "Haskell",
+                "correct": true
+            },
+            {
+                "content": "Cobol",
+                "correct": false
+            },
+            {
+                "content": "Ada",
+                "correct": true
+            }
+        ]
+    },
+    {
+        "Question": "Jaki jest ulubiony język programowania Dziekana?",
+        "options": [
+            {
+                "content": "Pascal",
+                "correct": false
+            },
+            {
+                "content": "Holy C",
+                "correct": false
+            },
+            {
+                "content": "Python",
+                "correct": false
+            },
+            {
+                "content": "Icon",
+                "correct": true
             }
         ]
     },
