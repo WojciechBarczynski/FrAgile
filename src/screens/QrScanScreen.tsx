@@ -1,5 +1,6 @@
+import { PrimaryButton, Title } from "components/atoms";
 import { useState } from "react";
-import { Text, Button, TextInput, View } from "react-native";
+import { TextInput, View } from "react-native";
 
 const rooms = [{
   id: 1,
@@ -17,14 +18,14 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
 
   return (
     <View style={{ flex: 1, padding: 10, justifyContent: 'center', alignItems: 'center'}}>
-      <Button
+      <PrimaryButton
         title="Open QR scanner"
-        onPress={() => {
-          console.log('Opening QR scanner');
+        handleOnClick={() => {
+          navigation.navigate("QrScanner");
         }}
       />
 
-      <Text>QR code number:</Text>
+      <Title title={" or "} />
 
       <TextInput
         style={{height: 40, alignSelf: 'stretch'}}
@@ -33,9 +34,9 @@ const QrScanScreen = ({ navigation }: { navigation: any }) => {
         defaultValue={inputText}
       />
 
-      <Button
+      <PrimaryButton
         title="Submit QR code number"
-        onPress={() => {
+        handleOnClick={() => {
           if (rooms.find(room => room.id.toString() === inputText)) {
             console.log('Room found');
           } else {

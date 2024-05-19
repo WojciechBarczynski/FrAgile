@@ -5,6 +5,7 @@ import MainScreen from "./src/screens/MainScreen";
 import QrScanScreen from "./src/screens/QrScanScreen";
 import { NavigationArrow } from "./src/screens/NavigationArrow";
 import { StackParams } from "./src/types";
+import QrScanner from "./src/screens/QrScan";
 
 
 export const Stack = createNativeStackNavigator<StackParams>();
@@ -12,8 +13,11 @@ export const Stack = createNativeStackNavigator<StackParams>();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="StartScreen">
         <Stack.Screen name="NavigationArrow" component={NavigationArrow} initialParams={{ current_stand_id: 0, next_stand_id: 1, data: hardcoded_json }} />
+        <Stack.Screen name="MainScreen" component={MainScreen} />
+        <Stack.Screen name="QrScanScreen" component={QrScanScreen} />
+        <Stack.Screen name="QrScanner" component={QrScanner} />
       </Stack.Navigator>
     </NavigationContainer>
   );
