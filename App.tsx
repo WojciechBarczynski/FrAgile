@@ -36,6 +36,10 @@ const hardcoded_json = {
         y: 1.0
       },
       angle: 3.14 * 1,
+      floor: 0,
+      room: "dupa",
+      name: "dupa",
+      description: "dupa"
     },
     1: {
       position: {
@@ -43,6 +47,10 @@ const hardcoded_json = {
         y: 2.0
       },
       angle: 0.0,
+      floor: 0,
+      room: "dupa",
+      name: "dupa",
+      description: "dupa"
     },
     2: {
       position: {
@@ -50,6 +58,10 @@ const hardcoded_json = {
         y: 6.0
       },
       angle: 0.0,
+      floor: 0,
+      room: "dupa",
+      name: "dupa",
+      description: "dupa"
     },
   }
 }

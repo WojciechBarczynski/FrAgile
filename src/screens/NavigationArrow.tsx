@@ -24,7 +24,7 @@ export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
             </View>
             <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('QrScanScreen')}>
-                    <Text style={styles.buttonText}>Scan Code</Text>
+                    <Text style={styles.buttonText}>Zeskanuj Kod QR</Text>
                 </TouchableOpacity>
             </View>
         </View>
