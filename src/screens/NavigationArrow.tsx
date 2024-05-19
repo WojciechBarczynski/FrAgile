@@ -1,11 +1,11 @@
 
 import React, { useContext } from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
-import { NavigationArrowProps, Position } from './src/types';
+import { NavigationArrowProps, Position } from '../types';
 
 
 export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
-    const image = require('../../assets/images/xp.png')
+    const image = require('../../assets/images/arrow.png')
 
     const data = route.params.data
     const current_stand_id = route.params.current_stand_id
