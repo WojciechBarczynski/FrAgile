@@ -6,10 +6,6 @@ import { Data, NavigationArrowProps, Position } from '../types';
 export function NavigationArrow({ navigation, route }: NavigationArrowProps) {
     const image = require('../../assets/images/arrow.png')
 
-    // const data = hardcoded_json
-    // const current_stand_id = 0
-    // let next_stand_id = 1
-
     const data = route.params.common_args.data
     const current_stand_id = route.params.current_stand_id
     let next_stand_id = route.params.next_stand_id
@@ -107,49 +103,3 @@ const styles = StyleSheet.create({
         color: '#000',
     },
 })
-
-export const hardcoded_json: Data = {
-    stands: {
-        2137: {
-            position: { x: 3.0, y: 3.0 },
-            angle: 0.0,
-            floor: 0,
-            room: "klatka schodowa",
-            name: "klatka schodowa",
-            description: "schody tu som"
-        },
-        0: {
-            position: {
-                x: 3.0,
-                y: 1.0
-            },
-            angle: 3.14 * 1,
-            floor: 0,
-            room: "dupa",
-            name: "dupa1",
-            description: "dupa"
-        },
-        1: {
-            position: {
-                x: 2.0,
-                y: 2.0
-            },
-            angle: 0.0,
-            floor: 1,
-            room: "dupa",
-            name: "dupa2",
-            description: "dupa"
-        },
-        2: {
-            position: {
-                x: 5.0,
-                y: 6.0
-            },
-            angle: 0.0,
-            floor: 0,
-            room: "dupa",
-            name: "dupa3",
-            description: "dupa"
-        },
-    }
-}
