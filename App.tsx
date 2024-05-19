@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import MainScreen from "./src/screens/MainScreen";
 import QrScanScreen from "./src/screens/QrScanScreen";
 import QrScanner from "./src/screens/QrScan";
-//import CreditsScreen from "./src/screens/CreditsScreen";
+import CreditsScreen from "./src/screens/CreditsScreen";
 
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +27,11 @@ function App() {
           name="QrScanner"
           component={QrScanner}
           options ={{title:"Scan QR code", headerTitleAlign: 'center'}} />
+
+        <Stack.Screen
+          name="CreditsScreen"
+          component={CreditsScreen}
+          options ={{title:"Credits", headerTitleAlign: 'center'}} />
 
       </Stack.Navigator>
     </NavigationContainer>
